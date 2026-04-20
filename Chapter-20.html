@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Modern Learning Hub - Chapter 20: Interactive Feedback & Status
+    </title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .transition-box {
+        width: 150px;
+        padding: 15px;
+        background-color: #004d99;
+        color: white;
+        text-align: center;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+      .basic-transition {
+        transition:
+          background-color 0.5s,
+          transform 0.5s;
+      }
+      .basic-transition:hover {
+        background-color: #00a04d;
+        transform: scale(1.05);
+      }
+      .delay-transition {
+        transition: width 3s;
+        transition-delay: 0.5s;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .delay-transition:hover {
+        width: 600px;
+      }
+      .timing-linear {
+        transition: margin-left 2s linear;
+      }
+      .timing-ease {
+        transition: margin-left 2s ease;
+      }
+      .timing-ease-in {
+        transition: margin-left 2s ease-in;
+      }
+
+      .timing-container:hover .timing-box {
+        margin-left: 200px;
+      }
+      .timing-box {
+        width: 100px;
+        height: 50px;
+        background-color: #cc0000;
+        margin-bottom: 5px;
+        color: white;
+        line-height: 50px;
+        text-align: center;
+      }
+
+      @keyframes pulse-alert {
+        from {
+          background-color: #cc0000;
+        }
+        to {
+          background-color: #ff6666;
+        }
+      }
+      .anim-two-step {
+        animation-name: pulse-alert;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      /* 20.2.2 Multiple Keyframes (Loading Spinner) */
+      @keyframes spin-loader {
+        0% {
+          transform: rotate(0deg);
+          border-top-color: #004d99;
+        }
+        50% {
+          transform: rotate(180deg);
+          border-top-color: #00a04d;
+        }
+        100% {
+          transform: rotate(360deg);
+          border-top-color: #004d99;
+        }
+      }
+      .loader {
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid #004d99;
+        width: 40px;
+        height: 40px;
+        animation: spin-loader 2s linear infinite;
+      }
+
+      /* 20.2.3 Animation Delay */
+      .anim-delay {
+        animation-name: slide-in;
+        animation-duration: 2s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      @keyframes slide-in {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(100px);
+        }
+      }
+      .anim-direction-alternate {
+        animation: bounce 2s infinite alternate;
+        background-color: #e6f2ff;
+        border: 1px solid #004d99;
+        padding: 5px;
+        width: 100px;
+      }
+
+      .timing-demo-container {
+        background-color: #fff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+      .timing-row {
+        margin-bottom: 15px;
+      }
+      .timing-label {
+        font-weight: bold;
+        font-family: monospace;
+        color: #004d99;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 20px;
+        background-color: #f0f4f8;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+      }
+      .progress-bar {
+        width: 20%;
+        height: 100%;
+        background-color: #00a04d;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-name: move-bar;
+      }
+      @keyframes move-bar {
+        0% {
+          width: 20%;
+        }
+        50% {
+          width: 60%;
+        }
+        100% {
+          width: 20%;
+        }
+      }
+      @media (max-width: 768px) {
+        .transition-box {
+          width: 100%;
+        }
+        .delay-transition:hover {
+          width: 100%;
+        }
+        .timing-box {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 20</b></h1>
+      <h2><b>CSS Transitions & Animations: Interactive Status</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#cssTransitions">CSS Transitions</a>
+            <ol>
+              <li><a href="#basicTrans">Basic Transitions</a></li>
+              <li><a href="#transDelay">Transition Delay</a></li>
+              <li><a href="#transTiming">Transition Timing Function</a></li>
+              <li>
+                <a href="#transShorthand">Shorthand Transition Property</a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#cssAnimations">CSS Animations</a>
+            <ol>
+              <li><a href="#twoStep">Two-step Keyframes</a></li>
+              <li><a href="#multiStep">Multiple Keyframes</a></li>
+              <li><a href="#animDelay">Animation Delay</a></li>
+              <li><a href="#animIter">Iteration Count</a></li>
+              <li><a href="#animDir">Animation Direction</a></li>
+              <li><a href="#animTiming">Timing Function</a></li>
+              <li><a href="#animShorthand">Shorthand Animation Property</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <div id="cssTransitions">
+          <h1>20.1 CSS Transitions (Smooth Feedback)</h1>
+          <hr />
+          <p>
+            Transitions provide smooth visual changes when an element changes
+            state (e.g., hovering over a "Start Lesson" button).
+          </p>
+
+          <div id="basicTrans">
+            <h3>20.1.1 Basic Transitions</h3>
+            <div class="transition-box basic-transition">
+              Hover Me<br />(Color & Scale)
+            </div>
+          </div>
+
+          <div id="transDelay">
+            <h3>20.1.2 Transition Delay</h3>
+            <div class="transition-box delay-transition">
+              Hover & Wait (0.5s Delay) -> Expands
+            </div>
+          </div>
+
+          <div id="transTiming">
+            <h3>20.1.3 Transition Timing Function</h3>
+            <p>
+              Controls the speed curve of the transition (Hover the container
+              below).
+            </p>
+            <div
+              class="timing-container"
+              style="border: 1px dashed #ccc; padding: 10px"
+            >
+              <div class="timing-box timing-linear">Linear</div>
+              <div class="timing-box timing-ease">Ease</div>
+              <div class="timing-box timing-ease-in">Ease-In</div>
+            </div>
+          </div>
+
+          <div id="transShorthand">
+            <h3>20.1.4 Shorthand Transition Property</h3>
+            <p>
+              <code>transition: [property] [duration] [timing] [delay];</code
+              ><br />
+              Example: <code>transition: all 0.3s ease-in-out;</code>
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div id="cssAnimations">
+          <h1>20.2 CSS Animations (System Status)</h1>
+          <hr />
+          <p>
+            Animations run continuously or independently of user interaction,
+            ideal for loading states and alerts in study modules.
+          </p>
+
+          <div id="twoStep">
+            <h3>20.2.1 Two-step Keyframes (from/to)</h3>
+            <div class="anim-two-step">IMPORTANT ALERT (Pulsing Red)</div>
+          </div>
+
+          <div id="multiStep">
+            <h3>20.2.2 Multiple Keyframes (0% - 100%)</h3>
+            <p>Loading Module...</p>
+            <div class="loader"></div>
+          </div>
+
+          <div id="animDelay">
+            <h3>20.2.3 Animation Delay</h3>
+            <p>
+              The `animation-delay` property specifies a delay for the start of
+              an animation. This is useful for sequencing elements, like showing
+              a success message *after* a module completes.
+            </p>
+
+            <div
+              style="
+                background-color: #f0f4f8;
+                padding: 20px;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                height: 60px;
+                position: relative;
+              "
+            >
+              <div class="anim-delay-example">
+                ✅ Lesson Completed! Redirecting...
+              </div>
+            </div>
+
+            <style>
+              @keyframes fade-in-up {
+                from {
+                  opacity: 0;
+                  transform: translateY(10px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+
+              .anim-delay-example {
+                color: #00a04d;
+                font-weight: bold;
+                background-color: white;
+                padding: 10px 20px;
+                border-radius: 4px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+
+                animation-name: fade-in-up;
+                animation-duration: 2s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: infinite;
+                animation-delay: 1s;
+                animation-fill-mode: both;
+              }
+            </style>
+          </div>
+
+          <div id="animIter">
+            <h3>20.2.4 Animation Iteration Count</h3>
+            <p>
+              The `animation-iteration-count` property defines how many times an
+              animation should play. Setting it to `infinite` creates a
+              continuous loop, essential for status indicators like loading
+              spinners or pulsing alerts in study dashboards.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+              "
+            >
+              <div class="loader-infinite"></div>
+              <div>
+                <strong>Processing Module...</strong><br />
+                <small>animation-iteration-count: infinite;</small>
+              </div>
+            </div>
+
+            <style>
+              @keyframes spin-forever {
+                0% {
+                  transform: rotate(0deg);
+                }
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
+              .loader-infinite {
+                border: 4px solid #e0e0e0;
+                border-top: 4px solid #004d99;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                animation-name: spin-forever;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+              }
+            </style>
+          </div>
+
+          <div id="animDir">
+            <h3>20.2.5 Animation Direction</h3>
+            <div class="anim-direction-alternate">Ping Pong</div>
+            <p><code>alternate</code> plays forward then backward.</p>
+          </div>
+
+          <div id="animTiming">
+            <h3>20.2.6 Animation Timing Function</h3>
+            <p>
+              The `animation-timing-function` property specifies the speed curve
+              of the animation. This is crucial for creating natural-feeling UI
+              interactions in learning modules.
+            </p>
+
+            <div class="timing-demo-container">
+              <div class="timing-row">
+                <span class="timing-label">linear</span>
+                <div class="progress-track">
+                  <div class="progress-bar timing-linear-anim"></div>
+                </div>
+              </div>
+
+              <div class="timing-row">
+                <span class="timing-label">ease</span>
+                <div class="progress-track">
+                  <div class="progress-bar timing-ease-anim"></div>
+                </div>
+              </div>
+
+              <div class="timing-row">
+                <span class="timing-label">steps(4)</span>
+                <div class="progress-track">
+                  <div class="progress-bar timing-steps-anim"></div>
+                </div>
+              </div>
+            </div>
+
+            <style>
+              .timing-demo-container {
+                background-color: #fff;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+              }
+              .timing-row {
+                margin-bottom: 15px;
+              }
+              .timing-label {
+                font-weight: bold;
+                font-family: monospace;
+                color: #004d99;
+                display: block;
+                margin-bottom: 5px;
+              }
+              .progress-track {
+                width: 100%;
+                height: 20px;
+                background-color: #f0f4f8;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid #e0e0e0;
+              }
+              .progress-bar {
+                width: 20%;
+                height: 100%;
+                background-color: #00a04d;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-name: move-bar;
+              }
+
+              @keyframes move-bar {
+                from {
+                  margin-left: 0%;
+                  width: 20%;
+                }
+                to {
+                  margin-left: 80%;
+                  width: 20%;
+                }
+              }
+
+              .timing-linear-anim {
+                animation-timing-function: linear;
+              }
+              .timing-ease-anim {
+                animation-timing-function: ease;
+              }
+              .timing-steps-anim {
+                animation-timing-function: steps(4);
+              }
+            </style>
+          </div>
+
+          <div id="animShorthand">
+            <h3>20.2.7 Shorthand Animation Property</h3>
+            <p>
+              <code
+                >animation: [name] [duration] [timing] [delay] [iteration]
+                [direction];</code
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html" class="current-chapter">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

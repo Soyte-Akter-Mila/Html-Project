@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern learning Hub- Chapter 04: Semantic HTML</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      details {
+        border: 1px solid #004d99;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 15px 0;
+        background-color: #f0f8ff;
+      }
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 0;
+        color: #004d99;
+      }
+      figure {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+        background-color: #ffffff;
+      }
+      figure img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px auto;
+      }
+      figcaption {
+        font-style: italic;
+        font-size: 0.9em;
+        color: #555;
+        padding-top: 5px;
+        border-top: 1px dashed #e0e0e0;
+      }
+
+      @media (max-width: 768px) {
+        nav.contents {
+          font-size: 0.9em;
+        }
+        aside {
+          float: none !important;
+          width: 100% !important;
+          margin: 10px 0 !important;
+        }
+      }
+      @media (max-width: 480px) {
+        nav.contents ol {
+          padding-left: 20px;
+        }
+        figure {
+          padding: 5px;
+        }
+        summary {
+          font-size: 0.95em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 04</b></h1>
+      <h2><b>Semantic HTML: Structuring Educational Content</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#semanticElements">Semantic Elements</a>
+            <ol>
+              <li><a href="#blockquote">Blockquote (External Quotes)</a></li>
+              <li><a href="#address">Address (Contact Information)</a></li>
+              <li><a href="#detailsSummary">Details & Summary (Accordions)</a></li>
+              <li><a href="#figureFigcaption">Figure & Figcaption (Charts)</a></li>
+            </ol>
+          </li>
+          <li><a href="#semanticLayoutElements">Semantic Layout Elements</a></li>
+          <li><a href="#semanticFormattingElements">Semantic Formatting Elements</a></li>
+        </ol>
+      </nav>
+
+      <div class="topic">
+       
+        <div id="semanticElements">
+          <h1>4.1 Semantic Elements (Data Meaning)</h1>
+          <hr />
+
+          <div id="blockquote">
+            <h2>4.1.1 Blockquote (Quoting External Sources)</h2>
+            <p>
+              A Mathematics Professor shared a statement regarding problem-solving strategies:
+            </p>
+            <blockquote cite="https://www.khanacademy.org/math">
+              <p>
+                "Students should practice algebra daily, as consistent effort builds mastery.  
+                Problem-solving is not about memorization but about logical reasoning."
+              </p>
+              <footer>— Khan Academy Learning Resource</footer>
+            </blockquote>
+          </div>
+
+          <div id="address">
+            <h2>4.1.2 Address (Contact & Geographic Data)</h2>
+            <p>
+              The &lt;address&gt; tag is used to provide contact information for the nearest learning center or the document author:
+            </p>
+            <address>
+              <p>EduHub Central Learning Center</p>
+              <p>
+                <a href="mailto:modernlearning@gmail.com">info@eduhub.com</a><br>
+                <a href="tel:+8801311990587">+880 12345678910</a><br>
+                Knowledge Tower, Education District, Dhaka
+              </p>
+            </address>
+          </div>
+
+          <div id="detailsSummary">
+            <h2>4.1.3 Details and Summary (Collapsible Study Notes)</h2>
+            <p>
+              Use &ltdetails&gt for sections that are initially hidden, such as extended explanations or practice tips.
+            </p>
+            <details>
+              <summary>Key Study Reminder: Read Before Exam</summary>
+              <p>
+                **Note:** Practice problems daily. Revise formulas regularly.  
+                Exams will test both conceptual clarity and application.
+              </p>
+              <ul>
+                <li>Algebra practice is mandatory.</li>
+                <li>Geometry diagrams must be labeled properly.</li>
+              </ul>
+            </details>
+            <details>
+              <summary>Technical Data: Math Symbols Glossary</summary>
+              <p>
+                <dl>
+                  <dt>π</dt>
+                  <dd>Represents the ratio of circumference to diameter.</dd>
+                  <dt>√</dt>
+                  <dd>Square root symbol.</dd>
+                  <dt>Σ</dt>
+                  <dd>Summation symbol used in statistics.</dd>
+                </dl>
+              </p>
+            </details>
+          </div>
+
+          <div id="figureFigcaption">
+            <h2>4.1.4 Figure and Figcaption (Charts and Visual Data)</h2>
+            <p>
+              The `&ltfigure&gt`  element is used to mark up a chart or image that is referred to from the main flow of the text.
+            </p>
+            <figure>
+              <img src="Image/Math-chart.webp" alt="Bar chart showing student performance." style="max-width: 600px;">
+              <figcaption>Figure 4.1: Student Performance in Algebra and Geometry.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <hr>
+
+       
+        <div id="semanticLayoutElements">
+          <h1>4.2 Semantic Layout Elements (Report Structure)</h1>
+          <hr />
+          <p>
+            Semantic layout tags help search engines and accessibility tools understand the purpose of different parts of the educational portal.
+          </p>
+
+          <header
+           style="border: 1px solid #e0e0e0; padding: 10px; 
+           background-color: #f9f9f9;">
+            <p>
+              <b>&lt;header&gt;:</b>
+               Contains the main heading and EduHub logo.
+              </p>
+          </header>
+
+          <nav style="border: 1px solid #e0e0e0; 
+          padding: 10px; 
+          margin: 10px 0; 
+          background-color: #f9f9f9;">
+            <p>
+              <b>&lt;nav&gt;:</b> 
+              Contains primary links like Dashboard, Courses, and Settings.</p>
+          </nav>
+
+          <main style="border: 1px solid #e0e0e0;
+           padding: 10px; 
+           margin: 10px 0; 
+           background-color: #ffffff;">
+            <p>
+              <b>&lt;main&gt;:</b>
+               Contains the unique content of this page (e.g., the full study material).
+              </p>
+            
+            <section style="border: 1px solid #ccc; 
+            padding: 10px; 
+            margin: 10px 0; 
+            background-color: #fffde7;">
+              <h2>Mathematics Module Report</h2>
+              <p>
+                <b>&lt;section&gt;:</b>
+                 A standalone piece of content, such as a major sub-topic. This section covers algebra practice.
+                </p>
+            </section>
+            
+               <article 
+               style="border: 1px solid #ccc;
+             padding: 10px;
+              margin: 10px 0; background-color: #e6f2ff;">
+              <h3>Learning Strategy</h3>
+              <p>
+                <b>&lt;article&gt;:</b> 
+                A self-contained piece of content, like a published article or blog post. This article details the 2026 study plan.
+              </p>
+            </article>
+
+            <aside 
+            style="float: right; 
+            width: 30%;
+             border: 1px solid #c00; 
+             padding: 10px;
+              margin-left: 10px; background-color: #ffe0e0;">
+              <p>
+                <b>&lt;aside&gt;:</b> 
+                Content related to the main content but separate from it, like a **Study Tips
+                <footer style="background-color: #f0f4f8; padding: 10px; text-align: left; margin-top: 10px; color: #333;">
+  <p>
+    <b>&lt;footer&gt;:</b> Contains copyright information,
+    educational links, and <b>&lt;address&gt;</b> data (see below).
+  </p>
+</footer>
+</div>
+<hr>
+
+<div id="semanticFormattingElements">
+  <h1>4.3 Semantic Formatting Elements</h1>
+  <hr />
+  
+  <div id="strong">
+    <h2>4.3.1 Strong (`&lt;strong&gt;`) - Importance</h2>
+    <p>
+      Students must acknowledge that <strong>practice</strong> is essential,
+      and the final responsibility rests with them.  
+      The new assignment submission limit is <strong>3 per week</strong>.
+    </p>
+  </div>
+
+  <div id="em">
+    <h2>4.3.2 Emphasized (&lt;em&gt;) - Accentuation</h2>
+    <p>
+      You should <em>never</em> skip revision before exams unless explicitly
+      advised by your teacher. This is a <em>critical</em> study habit.
+    </p>
+  </div>
+</div>
+
+<br />
+</div>
+</div>
+
+<!-- Bottom Navigation Bar -->
+ <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html"class="current-chapter">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+</div>
+
+ <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>
+

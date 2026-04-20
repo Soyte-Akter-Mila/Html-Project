@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 19: Advanced Layout Systems</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      /* 19.1 Position */
+      .pos-container {
+        height: 150px;
+        border: 1px solid #ccc;
+        position: relative;
+        overflow: auto;
+        background-color: #f9f9f9;
+        margin-bottom: 20px;
+      }
+      .pos-static {
+        position: static;
+        border: 1px solid #999;
+        padding: 5px;
+      }
+      .pos-relative {
+        position: relative;
+        left: 20px;
+        border: 1px solid #004d99;
+        color: #004d99;
+        padding: 5px;
+      }
+      .pos-absolute {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #cc0000;
+        color: white;
+        padding: 5px;
+        border-radius: 4px;
+      }
+      .pos-sticky {
+        position: sticky;
+        top: 0;
+        background-color: #00a04d;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      /* 19.2 Float */
+      .float-box {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: #e6f2ff;
+        border: 1px solid #004d99;
+        text-align: center;
+        line-height: 100px;
+      }
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      /* 19.3 Z-Index */
+      .z-stack {
+        position: relative;
+        height: 100px;
+      }
+      .z-box {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border: 1px solid #333;
+        padding: 5px;
+      }
+      .z-1 {
+        background-color: #ccc;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+      }
+      .z-2 {
+        background-color: #004d99;
+        color: white;
+        top: 30px;
+        left: 30px;
+        z-index: 2;
+      }
+      .z-3 {
+        background-color: #00a04d;
+        color: white;
+        top: 50px;
+        left: 50px;
+        z-index: 3;
+      }
+
+      /* 19.4 Flexbox */
+      .flex-container {
+        display: flex;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 10px;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .flex-item {
+        background-color: #004d99;
+        color: white;
+        padding: 15px;
+        border-radius: 4px;
+        text-align: center;
+        flex: 1;
+      }
+
+      /* 19.5 Grid */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        background-color: #f0f4f8;
+        padding: 15px;
+      }
+      .grid-item {
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+      }
+      .grid-header {
+        grid-column: 1 / 4;
+        background-color: #004d99;
+        color: white;
+      }
+      .grid-sidebar {
+        grid-row: 2 / 4;
+        background-color: #e6f2ff;
+      }
+
+      /* 19.6 Alignment */
+      .align-container {
+        height: 100px;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9f9f9;
+      }
+      .align-box {
+        background-color: #cc0000;
+        color: white;
+        padding: 10px 20px;
+      }
+
+      @media (max-width: 768px) {
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
+        .flex-container {
+          flex-direction: column;
+        }
+        .float-box {
+          float: none;
+          width: 100%;
+        }
+        .align-container {
+          height: auto;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 19</b></h1>
+      <h2><b>CSS Layout: Designing Learning Dashboards</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#cssPosition">CSS Position</a>
+            <ol>
+              <li><a href="#posStatic">Static</a></li>
+              <li><a href="#posRelative">Relative</a></li>
+              <li><a href="#posAbsolute">Absolute</a></li>
+              <li><a href="#posFixed">Fixed</a></li>
+              <li><a href="#posSticky">Sticky</a></li>
+            </ol>
+          </li>
+          <li><a href="#cssFloat">CSS Float</a></li>
+          <li><a href="#cssZIndex">CSS Z-Index</a></li>
+          <li>
+            <a href="#cssFlexbox">CSS Flexbox</a>
+            <ol>
+              <li><a href="#flexContainer">Flex Container</a></li>
+              <li><a href="#flexItems">Flex Items</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#cssGrid">CSS Grid</a>
+            <ol>
+              <li><a href="#gridContainer">Grid Container</a></li>
+              <li><a href="#gridItems">Grid Items</a></li>
+            </ol>
+          </li>
+          <li><a href="#cssAlignment">CSS Alignment</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- Your sections remain exactly as you gave -->
+        <div id="cssPosition">
+          <h1>19.1 CSS Position (UI Control)</h1>
+          <hr />
+          <p>
+            Controls how elements are positioned in the document flow. Essential
+            for sticky headers, badges, and overlays in learning dashboards.
+          </p>
+
+          <div class="pos-container">
+            <div class="pos-sticky">Sticky Header (Scroll to test)</div>
+            <p class="pos-static">Static: Default flow (Lesson List).</p>
+            <p class="pos-relative">Relative: Shifted 20px right.</p>
+            <div class="pos-absolute">Absolute (Notification)</div>
+            <p>Scroll down to see sticky behavior...</p>
+            <p style="height: 300px">(Content Spacer)</p>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssFloat">
+          <h1>19.2 CSS Float (Legacy Layouts)</h1>
+          <hr />
+          <p>
+            Used to wrap text around images, though Flexbox/Grid are preferred
+            for layout structure in modern study portals.
+          </p>
+
+          <div class="clearfix">
+            <div class="float-box">Diagram 1</div>
+            <div class="float-box">Diagram 2</div>
+            <p>
+              This text wraps around the floated diagram boxes. In study notes,
+              this allows summary text to flow naturally alongside visuals.
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssZIndex">
+          <h1>19.3 CSS Z-Index (Layering)</h1>
+          <hr />
+          <p>
+            Controls the stack order. Higher numbers appear on top. Used for
+            dropdowns, modals, and tooltips in learning dashboards.
+          </p>
+
+          <div class="z-stack">
+            <div class="z-box z-1">Layer 1 (Base)</div>
+            <div class="z-box z-2">Layer 2 (Mid)</div>
+            <div class="z-box z-3">Layer 3 (Top)</div>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssFlexbox">
+          <h1>19.4 CSS Flexbox (1D Layouts)</h1>
+          <hr />
+          <p>
+            Ideal for arranging items in a single row or column (e.g.,
+            Navigation bars, module lists).
+          </p>
+
+          <h3 id="flexContainer">19.4.1 Flex Container (Row Layout)</h3>
+          <div class="flex-container" style="justify-content: space-between">
+            <div class="flex-item">Dashboard</div>
+            <div class="flex-item">Modules</div>
+            <div class="flex-item">Assignments</div>
+            <div class="flex-item">Settings</div>
+          </div>
+
+          <h3 id="flexItems">19.4.2 Flex Items (Grow/Shrink)</h3>
+          <div class="flex-container">
+            <div class="flex-item" style="flex-grow: 1">
+              Main Content (Grows)
+            </div>
+            <div class="flex-item" style="flex-grow: 0">Sidebar (Fixed)</div>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssGrid">
+          <h1>19.5 CSS Grid (2D Layouts)</h1>
+          <hr />
+          <p>
+            The most powerful layout system for creating complex learning
+            dashboards with rows and columns.
+          </p>
+
+          <div class="grid-container">
+            <div class="grid-item grid-header">
+              Learning Hub Header (Spans 3 Columns)
+            </div>
+            <div class="grid-item grid-sidebar">
+              Sidebar Menu<br />(Spans 2 Rows)
+            </div>
+            <div class="grid-item">Module Summary</div>
+            <div class="grid-item">Recent Activity</div>
+            <div class="grid-item">Progress Tracker</div>
+            <div class="grid-item">Resources</div>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssAlignment">
+          <h1>19.6 CSS Alignment (Perfect Centering)</h1>
+          <hr />
+          <p>
+            Aligning items horizontally and vertically is critical for clean UI
+            design (e.g., centering a login box).
+          </p>
+
+          <div class="align-container">
+            <div class="align-box">Perfectly Centered Box</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html" class="current-chapter">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

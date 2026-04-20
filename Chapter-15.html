@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 15: CSS Colors & Branding</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .color-swatch {
+        width: 150px;
+        height: 100px;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+        padding-top: 35px;
+        box-sizing: border-box;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      .name-red {
+        background-color: red;
+      }
+      .name-green {
+        background-color: green;
+      }
+      .name-blue {
+        background-color: blue;
+      }
+
+      .hex-brand {
+        background-color: #004d99;
+      }
+      .hex-success {
+        background-color: #00a04d;
+      }
+      .hex-alert {
+        background-color: #cc0000;
+      }
+
+      .rgb-primary {
+        background-color: rgb(0, 77, 153);
+      }
+      .rgba-overlay {
+        background-color: rgba(0, 77, 153, 0.5);
+        color: black;
+        text-shadow: none;
+        position: relative;
+      }
+
+      .grey-light {
+        background-color: #f0f4f8;
+        color: #333;
+        text-shadow: none;
+      }
+      .grey-medium {
+        background-color: #cccccc;
+        color: #333;
+        text-shadow: none;
+      }
+      .grey-dark {
+        background-color: #333333;
+      }
+
+      @media (max-width: 768px) {
+        .color-swatch {
+          width: 100%;
+          height: 80px;
+          padding-top: 25px;
+        }
+        .contentAndTopic {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 15</b></h1>
+      <h2><b>CSS Colors: Branding & Data Visualization</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#colorNames">Color Names</a></li>
+          <li><a href="#hexColors">Hex Colors</a></li>
+          <li><a href="#rgbColors">RGB Colors</a></li>
+          <li><a href="#greyColors">Grey Colors</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- 15.1 Color Names -->
+        <div id="colorNames">
+          <h1>15.1 Color Names (Standard Palettes)</h1>
+          <hr />
+          <p>
+            HTML supports 140 standard color names. While simple to use, they
+            are rarely precise enough for strict corporate branding but useful
+            for quick prototyping.
+          </p>
+          <div>
+            <div class="color-swatch name-red">Red<br />(Stop)</div>
+            <div class="color-swatch name-green">Green<br />(Go)</div>
+            <div class="color-swatch name-blue">Blue<br />(Info)</div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 15.2 Hex Colors -->
+        <div id="hexColors">
+          <h1>15.2 Hex Colors (Corporate Branding)</h1>
+          <hr />
+          <p>
+            Hexadecimal colors (e.g., #RRGGBB) provide the exact precision
+            needed for corporate identity. SecureBank uses specific Hex codes
+            for its logo and UI elements.
+          </p>
+          <div>
+            <div class="color-swatch hex-brand">Brand Blue<br />#004d99</div>
+            <div class="color-swatch hex-success">Success<br />#00a04d</div>
+            <div class="color-swatch hex-alert">Alert<br />#cc0000</div>
+          </div>
+          <p>
+            <strong>Usage:</strong> Hex codes are the industry standard for web
+            design due to their compactness and widespread support.
+          </p>
+        </div>
+        <hr />
+
+        <!-- 15.3 RGB Colors -->
+        <div id="rgbColors">
+          <h1>15.3 RGB Colors (Dynamic Data)</h1>
+          <hr />
+          <p>
+            RGB values (rgb(red, green, blue)) define colors by intensity
+            (0-255). RGBA adds an Alpha channel (0-1) for transparency, useful
+            for overlays and financial charts.
+          </p>
+          <div>
+            <div class="color-swatch rgb-primary">
+              RGB Solid<br />rgb(0,77,153)
+            </div>
+            <div class="color-swatch rgba-overlay">
+              RGBA Alpha<br />0.5 Opacity
+              <div
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 10px;
+                  z-index: -1;
+                  font-size: 30px;
+                  color: black;
+                "
+              >
+                $$$
+              </div>
+            </div>
+          </div>
+          <p>
+            <strong>Note:</strong> The transparent box (right) allows background
+            elements (like the "$$$") to show through, crucial for overlaying
+            data on maps or charts.
+          </p>
+        </div>
+        <hr />
+
+        <!-- 15.4 Grey Colors -->
+        <div id="greyColors">
+          <h1>15.4 Grey Colors (UI Structure)</h1>
+          <hr />
+          <p>
+            Greys are essential for UI hierarchy—backgrounds, borders, and
+            secondary text. They reduce visual noise, allowing the blue/green
+            financial data to stand out.
+          </p>
+          <div>
+            <div class="color-swatch grey-light">Background<br />#f0f4f8</div>
+            <div class="color-swatch grey-medium">Border<br />#cccccc</div>
+            <div class="color-swatch grey-dark">Text<br />#333333</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html" class="current-chapter">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

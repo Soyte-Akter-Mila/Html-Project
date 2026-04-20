@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 17: Branding & Visual Depth</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      /* 17.1.1 background-color */
+      .bg-color-demo {
+        background-color: #e6f2ff; /* Light Blue Background */
+        padding: 15px;
+        border: 1px solid #004d99;
+      }
+
+      /* 17.1.2 background-image */
+      .bg-image-demo {
+        width: 100%;
+        height: 150px;
+        background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23004d99" fill-opacity="0.1"/></svg>');
+        border: 1px solid #ccc;
+      }
+
+      /* 17.1.3 background-repeat */
+      .bg-repeat-no {
+        width: 100%;
+        height: 100px;
+        background-image: url("/icon/learning Hub.webp");
+        background-repeat: no-repeat;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        background-size: 100px auto;
+      }
+
+      /* 17.1.4 background-position */
+      .bg-position-center {
+        width: 100%;
+        height: 100px;
+        background-image: url("/icon/module-report.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        background-size: 75px auto;
+      }
+
+      /* 17.1.5 background-size */
+      .bg-size-contain,
+      .bg-size-cover {
+        width: 150px;
+        height: 150px;
+        background-image: url("/icon/learning-icon.png");
+        background-repeat: no-repeat;
+        border: 1px solid #ccc;
+        display: inline-block;
+      }
+      .bg-size-contain {
+        background-size: contain;
+      }
+      .bg-size-cover {
+        background-size: cover;
+      }
+
+      /* 17.1.7 background-clip */
+      .bg-clip-content {
+        background-color: #004d99;
+        padding: 20px;
+        border: 5px dashed #ccc;
+        background-clip: content-box;
+        color: white;
+      }
+
+      /* 17.1.8 background-origin */
+      .bg-origin-border {
+        background-image: url("icon/learning-resource.png");
+        background-repeat: no-repeat;
+        padding: 20px;
+        border: 5px dashed #ccc;
+        background-origin: border-box;
+        background-position: right;
+        background-size: 50px auto;
+        background-position-x: 650px;
+        color: rebeccapurple;
+      }
+
+      /* 17.1.9 background-attachment */
+      .bg-attachment-fixed {
+        height: 150px;
+        overflow-y: scroll;
+        background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><text x="5" y="25" font-size="10" fill="%23ccc">LEARNING</text></svg>');
+        background-attachment: local;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      /* 17.2 Gradients */
+      .linear-grad {
+        height: 100px;
+        background: linear-gradient(to right, #004d99, #00a04d);
+        color: white;
+        padding: 10px;
+      }
+
+      .repeating-linear {
+        height: 100px;
+        background: repeating-linear-gradient(
+          45deg,
+          #f0f4f8,
+          #f0f4f8 10px,
+          #e0e0e0 10px,
+          #e0e0e0 20px
+        );
+        border: 1px solid #ccc;
+      }
+
+      .radial-grad {
+        height: 150px;
+        background: radial-gradient(circle, #ffffff, #e6f2ff, #004d99);
+        border: 1px solid #ccc;
+      }
+
+      /* 17.3 CSS Sprites */
+      .sprite-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .icon-sprite {
+        width: 32px;
+        height: 32px;
+        background-image: url("/icon/CSSSprite.jpg");
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 128px auto;
+      }
+      .icon-home {
+        background-position: -3px -10px;
+      }
+      .icon-settings {
+        background-position: -50px -10px;
+      }
+      .icon-user {
+        background-position: -95px -10px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .bg-size-contain,
+        .bg-size-cover {
+          width: 100%;
+          height: 120px;
+        }
+        .sprite-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 17</b></h1>
+      <h2><b>CSS Backgrounds: Branding & Visual Depth</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#bgProperties">CSS Background Properties</a>
+            <ol>
+              <li>
+                <a href="#bgColor">background-color</a>
+              </li>
+              <li>
+                <a href="#bgImage">background-image</a>
+              </li>
+              <li>
+                <a href="#bgRepeat">background-repeat</a>
+              </li>
+              <li>
+                <a href="#bgPosition">background-position</a>
+              </li>
+              <li><a href="#bgSize">background-size</a></li>
+              <li><a href="#bgShorthand">background (Shorthand)</a></li>
+              <li><a href="#bgClip">background-clip</a></li>
+              <li><a href="#bgOrigin">background-origin</a></li>
+              <li><a href="#bgAttachment">background-attachment</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#gradients">CSS Gradient Backgrounds</a>
+            <ol>
+              <li><a href="#linearGrad">Linear Gradients</a></li>
+              <li><a href="#repeatLinear">Repeating Linear Gradients</a></li>
+              <li><a href="#radialGrad">Radial Gradients</a></li>
+              <li><a href="#repeatRadial">Repeating Radial Gradients</a></li>
+            </ol>
+          </li>
+          <li><a href="#sprites">CSS Sprites</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- 17.1 CSS Background Properties -->
+        <div id="bgProperties">
+          <h1>17.1 CSS Background Properties</h1>
+          <hr />
+
+          <div id="bgColor">
+            <h3>17.1.1 background-color</h3>
+            <p>
+              Sets the base color for an element. Used for module cards and
+              sections in learning content.
+            </p>
+            <div class="bg-color-demo">
+              Learning Module Section (Light Blue Background)
+            </div>
+          </div>
+          <br />
+
+          <div id="bgImage">
+            <h3>17.1.2 background-image</h3>
+            <p>
+              Sets an image or pattern. Often used for subtle watermarks in
+              educational portals.
+            </p>
+            <div class="bg-image-demo"></div>
+          </div>
+          <br />
+
+          <div id="bgRepeat">
+            <h3>17.1.3 background-repeat</h3>
+            <p>Controls if/how the image repeats.</p>
+            <div class="bg-repeat-no"></div>
+          </div>
+          <br />
+
+          <div id="bgPosition">
+            <h3>17.1.4 background-position</h3>
+            <p>
+              Positions the image (e.g., center, top-right). Essential for
+              aligning icons in study dashboards.
+            </p>
+            <div class="bg-position-center"></div>
+          </div>
+          <br />
+
+          <div id="bgSize">
+            <h3>17.1.5 background-size</h3>
+            <p>Controls the size of the image relative to its container.</p>
+            <div>
+              <div class="bg-size-contain"></div>
+              Contain (Fit)
+              <div class="bg-size-cover"></div>
+              Cover (Fill)
+            </div>
+          </div>
+          <br />
+
+          <div id="bgShorthand">
+            <h3>17.1.6 background (Shorthand)</h3>
+            <p>
+              Combines color, image, repeat, position, and size in one line.
+            </p>
+            <pre style="background-color: #f0f4f8; padding: 10px">
+            background: #ffffff url('icon.png') no-repeat center / contain;</pre
+            >
+          </div>
+          <br />
+
+          <div id="bgClip">
+            <h3>17.1.7 background-clip</h3>
+            <p>
+              Defines how far the background extends (border-box, padding-box,
+              content-box).
+            </p>
+            <div class="bg-clip-content">
+              Content Box Clip: The blue background stops at the padding edge.
+            </div>
+          </div>
+          <br />
+
+          <div id="bgOrigin">
+            <h3>17.1.8 background-origin</h3>
+            <p>
+              Specifies where the background image is positioned relative to the
+              box model.
+            </p>
+            <div class="bg-origin-border">
+              Border Box Origin: Image starts at the top-left of the border.
+            </div>
+          </div>
+          <br />
+
+          <div id="bgAttachment">
+            <h3>17.1.9 background-attachment</h3>
+            <p>
+              Determines if the background scrolls with the content (`local`) or
+              stays fixed (`fixed`).
+            </p>
+            <div class="bg-attachment-fixed">
+              Scroll this box.<br />
+              (Learning Watermark Scrolls)<br /><br /><br /><br /><br />
+              End of content.
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 17.2 CSS Gradient Backgrounds -->
+        <div id="gradients">
+          <h1>17.2 CSS Gradient Backgrounds</h1>
+          <hr />
+
+          <div id="linearGrad">
+            <h3>17.2.1 Linear Gradients</h3>
+            <p>
+              Creates a smooth transition along a line. Used for modern headers
+              and buttons in learning modules.
+            </p>
+            <div class="linear-grad">Learning Hub Header (Blue to Green)</div>
+          </div>
+          <br />
+
+          <div id="repeatLinear">
+            <h3>17.2.2 Repeating Linear Gradients</h3>
+            <p>
+              Creates striped patterns, often used for "Draft" or "Practice"
+              overlays in study materials.
+            </p>
+            <div class="repeating-linear"></div>
+          </div>
+          <br />
+
+          <div id="radialGrad">
+            <h3>17.2.3 Radial Gradients</h3>
+            <p>
+              Radiates from a center point. Can create a "spotlight" effect in
+              module highlights.
+            </p>
+            <div class="radial-grad"></div>
+          </div>
+          <br />
+
+          <div id="repeatRadial">
+            <h3>17.2.4 Repeating Radial Gradients</h3>
+            <p>
+              Creates circular patterns (rarely used in clean educational UIs).
+            </p>
+            <div
+              style="
+                height: 100px;
+                background: repeating-radial-gradient(
+                  #e6f2ff,
+                  #e6f2ff 10px,
+                  #fff 10px,
+                  #fff 20px
+                );
+                border: 1px solid #ccc;
+              "
+            ></div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 17.3 CSS Sprites -->
+        <div id="sprites">
+          <h1>17.3 CSS Sprites (Performance Optimization)</h1>
+          <hr />
+          <p>
+            CSS Sprites combine multiple small icons into a single image file.
+            We then use `background-position` to show only the specific icon
+            needed. This reduces server requests and speeds up learning portal
+            loading.
+          </p>
+
+          <div class="sprite-container">
+            <div>
+              <div class="icon-sprite icon-home"></div>
+              <br /><small>Home</small>
+            </div>
+            <div>
+              <div class="icon-sprite icon-settings"></div>
+              <br /><small>Settings</small>
+            </div>
+            <div>
+              <div class="icon-sprite icon-user"></div>
+              <br /><small>User</small>
+            </div>
+          </div>
+          <p style="font-size: 0.9em; color: #666; margin-top: 10px">
+            *Note: These icons use the same source image but different
+            background positions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html" class="current-chapter">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

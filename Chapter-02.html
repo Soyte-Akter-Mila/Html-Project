@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern learning Hub- Chapter 02:Core Elements for Modern Learning Hub</title>
+  <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+  <style>
+   
+    .edu-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      margin-top: 15px;
+    }
+    .edu-table th, .edu-table td {
+      border: 1px solid #e0e0e0;
+      padding: 12px;
+      font-size: 0.95em;
+    }
+    .edu-table th {
+      background-color: #004d99;
+      color: #ffffff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .edu-table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .edu-table caption {
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: left;
+      margin-bottom: 5px;
+      color: #004d99;
+    }
+    .dashboard-map-container {
+      text-align: center;
+      margin: 20px 0;
+      border: 1px dashed #ccc;
+      padding: 15px;
+    }
+    .progress-meter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .progress-meter-group label {
+      font-weight: bold;
+      color: #004d99;
+    }
+    progress[value], meter {
+      width: 100%;
+      height: 25px;
+    }
+    /* Responsive Enhancements */
+    @media (max-width: 768px) {
+      .edu-table th, .edu-table td {
+        padding: 8px;
+        font-size: 0.85em;
+      }
+      .edu-table caption {
+        font-size: 1em;
+      }
+      .dashboard-map-container img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    @media (max-width: 480px) {
+      .edu-table {
+        display: block;
+        overflow-x: auto; 
+        white-space: nowrap;
+      }
+      .progress-meter-group {
+        flex-direction: column;
+      }
+      .progress-meter-group label {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chapterName">
+    <h1><b> CHAPTER 02</b></h1>
+    <h2><b>Core Elements for Modern Learning Hub</b></h2>
+  </div>
+
+<div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#headings">Headings & Paragraphs</a></li>
+          <li>
+            <a href="#hyperlinks">Hyperlinks</a>
+            <ol>
+              <li><a href="#externalAnchor">External Anchors</a></li>
+              <li><a href="#internalAnchor">Internal Anchors</a></li>
+              <li><a href="#downloadLink">Download Links</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#images">Images & Charts</a>
+            <ol>
+              <li><a href="#imageMaps">Image Maps</a></li>
+              <li><a href="#responsivePictures">Responsive Pictures</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#lists">Lists (Data Organization)</a>
+            <ol>
+              <li>
+                <a href="#unorderedList">Unordered List (Risk Factors)</a>
+              </li>
+              <li>
+                <a href="#orderedList">Ordered List (Verification Steps)</a>
+              </li>
+              <li>
+                <a href="#descriptionLists">Description Lists (Glossary)</a>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#tables">Advanced Tables</a></li>
+          <li>
+            <a href="#breaks"
+              >Breaks (&ltbr /&gt)
+              <hr />
+            </a>
+          </li>
+          <li><a href="#progressBars">Progress & Meter Bars</a></li>
+          <li>
+            <a href="#computerCode">Computer Code & Pre-formatted Text</a>
+          </li>
+        </ol>
+      </nav>
+    <div class="topic">
+      <div id="headings">
+        <h1>2.1 Headings & 2.2 Paragraphs</h1>
+        <hr />
+        <h2>Course Overview - Mathematics Basics</h2>
+        <p>This course introduces students to the core elements used in Modern Learning Hub.</p>
+      </div>
+      <hr />
+      <div id="hyperlinks">
+  <h1>2.3 Hyperlinks (Data Navigation)</h1>
+  <hr />
+
+  <div id="externalAnchor">
+    <h2>2.3.1 External Anchors (Learning Resources)</h2>
+    <p>
+      For extended study, consult the official
+      <a
+        href="https://www.khanacademy.org/math"
+        target="_blank"
+        title="Opens the Khan Academy Mathematics site"
+      >
+        Khan Academy - Mathematics
+      </a>.
+    </p>
+  </div>
+
+  <div id="internalAnchor">
+    <h2>2.3.2 Internal Anchors (In-Page Jumps)</h2>
+    <p>
+      Jump directly to the section detailing
+      <a href="#progressBars">Mathematics Progress Bar Visualizations</a>
+      on this page.
+    </p>
+  </div>
+
+  <div id="downloadLink">
+    <h2>2.3.3 Download Links (Study Materials)</h2>
+    <p>
+      Download the
+      <a
+        href="Image/Mathematics-Formula-Book.pdf"
+        download="Mathematics-Formula-Book.pdf"
+      >
+        Mathematics Formula Sheet (PDF)
+      </a>
+      for offline practice.
+    </p>
+  </div>
+</div>
+<hr />
+
+     <div id="images">
+  <h1>2.4 Images & Charts (Visualizing Data)</h1>
+  <hr />
+
+  <div id="imageMaps">
+    <h2>2.4.1 Image Maps (Interactive Dashboard Segments)</h2>
+    <p>
+      Click on a subject segment (Algebra or Geometry) in the image
+      below to navigate to the detailed learning module.
+    </p>
+    <div class="dashboard-map-container">
+      <!-- Placeholder image for an Educational Overview Chart -->
+      <img
+        src="/Image/Algebra-and-Geometry.png"
+        alt="Mathematics Dashboard Overview Chart"
+        usemap="#dashboardmap"
+        style="width: 100%; max-width: 600px; height: auto"
+      />
+       <map name="dashboardmap">
+        <!-- Assets clickable area -->
+        <area
+          shape="rect"
+          coords="0,0,300,600"
+          href="https://www.investopedia.com/ask/answers/032415/what-difference-between-current-assets-and-fixed-assets.asp"
+          alt="Assets Report"
+          title="Assets Report (Clickable Area)"
+        />
+        <area
+          shape="rect"
+          coords="301,0,600,600"
+          href="https://www.investopedia.com/articles/investing/100313/reviewing-liabilities-balance-sheet.asp"
+          alt="Liabilities Report"
+          title="Liabilities Report (Clickable Area)"
+        />
+      </map>
+
+    </div>
+  </div>
+</div>
+<hr />
+     <div id="lists">
+  <h1>2.5 Lists (Data Organization)</h1>
+  <hr />
+
+  <div id="unorderedList">
+    <h2>2.5.1 Unordered List (Key Learning Challenges)</h2>
+    <p>Identified challenges for the upcoming semester:</p>
+    <ul>
+      <li>Difficulty in Algebra problem-solving</li>
+      <li>Geometry visualization issues</li>
+      <li>Statistics data interpretation</li>
+      <li>Time management during exams</li>
+    </ul>
+  </div>
+
+  <div id="orderedList">
+    <h2>2.5.2 Ordered List (Study Preparation Steps)</h2>
+    <p>Mandatory steps to prepare for a new module:</p>
+    <ol>
+      <li>Review previous chapter notes</li>
+      <li>Attend interactive lectures</li>
+      <li>Complete practice worksheets</li>
+      <li>Submit assignments for evaluation</li>
+    </ol>
+  </div>
+
+  <div id="descriptionLists">
+    <h2>2.5.3 Description Lists (Mathematics Glossary)</h2>
+    <dl>
+      <dt>Algebra</dt>
+      <dd>Branch of mathematics dealing with symbols and rules for manipulating them.</dd>
+      <dt>Geometry</dt>
+      <dd>Study of shapes, sizes, and properties of space.</dd>
+      <dt>Statistics</dt>
+      <dd>Science of collecting, analyzing, and interpreting numerical data.</dd>
+    </dl>
+  </div>
+</div>
+<hr />
+    <div id="tables">
+  <h1>2.6 Advanced Tables (Complex Data Grids)</h1>
+  <hr />
+  <h2>Consolidated Subject Performance</h2>
+  <p>
+    This table demonstrates complex HTML table structure, including
+    row and column grouping for clear segmentation of educational data.
+  </p>
+  <table class="edu-table">
+    <caption>
+      Summary of Mathematics Performance by Topic and Category
+    </caption>
+    <colgroup>
+      <col style="background-color: #e6f2ff" />
+      <col span="2" />
+      <col span="2" style="background-color: #fff9e6" />
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th rowspan="2">Topic</th>
+        <th colspan="2">Algebra</th>
+        <th colspan="2">Geometry</th>
+      </tr>
+      <tr>
+        <th>Average Score</th>
+        <th>Improvement (%)</th>
+        <th>Average Score</th>
+        <th>Improvement (%)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Class A</td>
+        <td>78</td>
+        <td>+12%</td>
+        <td>82</td>
+        <td>+9%</td>
+      </tr>
+      <tr>
+        <td>Class B</td>
+        <td>74</td>
+        <td>+8%</td>
+        <td>79</td>
+        <td>+11%</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: right; font-weight: bold">
+          TOTAL PERFORMANCE (Algebra & Geometry)
+        </td>
+        <td colspan="2" style="font-weight: bold">Average: 78.25%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+
+<div id="breaks">
+  <h1>2.7 Breaks (Formatting for Clarity)</h1>
+  <hr />
+
+  <div id="lineBreaking">
+    <h2>2.7.1 Line Breaking (&lt;br&gt;)</h2>
+    <p>
+      Official Registered Address:<br />
+      EduHub Global Headquarters<br />
+      100 Knowledge Tower, Floor 4<br />
+      Education District, Dhaka, Bangladesh
+    </p>
+  </div>
+
+  <div id="thematicBreaking">
+    <h2>2.7.2 Thematic Breaking (&lt;hr&gt;)</h2>
+    <p>
+      The horizontal rule below clearly separates the primary
+      educational data section from the technical system checks.
+    </p>
+    <hr />
+    <p style="font-style: italic">
+      --- Learning System Integrity Check Follows ---
+    </p>
+  </div>
+</div>
+<hr />
+     <div id="progressBars">
+  <h1>2.8 Progress Bars (Visualizing Status)</h1>
+  <hr />
+
+  <div class="progress-meter-group">
+    <div id="progress">
+      <h2>2.8.1 Course Progress (&lt;progress&gt;)</h2>
+      <label for="course-progress">Module Completion:</label>
+      <progress id="course-progress" value="75" max="100">75%</progress>
+      <p style="font-size: 0.9em; margin-top: 5px">
+        75% of mathematics modules completed successfully.
+      </p>
+    </div>
+
+    <div id="meter">
+      <h2>2.8.2 Knowledge Meter (&lt;meter&gt;)</h2>
+      <label for="knowledge-meter">
+        Current Understanding Level (Target: 0.8):
+      </label>
+      <meter
+        id="knowledge-meter"
+        value="0.82"
+        min="0"
+        max="1"
+        low="0.4"
+        high="0.9"
+        optimum="0.8"
+      >
+        82%
+      </meter>
+      <p style="font-size: 0.9em; margin-top: 5px">
+        Current understanding is 82% (above target).
+      </p>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div id="computerCode">
+  <h1>2.9 Computer Code (&lt;code&gt;, &lt;pre&gt;)</h1>
+  <hr />
+
+  <div id="code">
+    <h2>2.9.1 Inline Code (&lt;code&gt;)</h2>
+    <p>
+      Use the formula <code style="color: #c00">a^2 + b^2 = c^2</code>
+      to calculate right‑angled triangles.  
+      The summation symbol <code style="color: green">Σ</code>
+      is used for series calculations.
+    </p>
+  </div>
+
+  <div id="pre">
+    <h2>2.9.2 Pre-formatted Text (&lt;pre&gt;) - Study Reminder</h2>
+    <p>
+      This block preserves the exact spacing and line breaks of the
+      mathematics study notes:
+    </p>
+    <pre
+      style="
+        border: 1px dashed #004d99;
+        padding: 15px;
+        background-color: #f0f8ff;
+        font-family: monospace;
+        white-space: pre-wrap;
+      "
+    >
+
+        +---------------------------------------------+
+        | NOTICE: Practice Safe Math Habits           |
+        |                                             |
+        | Always show steps clearly in solutions.     |
+        | Double-check calculations before submission.|
+        |                                             |
+        | Session Timeout: 30 mins                    |
+        +---------------------------------------------+
+            </pre>
+          </div>
+      <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html" class="current-chapter">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+     <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

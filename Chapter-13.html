@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub -Chapter 13: CSS Cascading & Priority</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .status-msg {
+        color: #004d99;
+      }
+      .status-msg {
+        color: #cc0000;
+      }
+
+      p {
+        color: #555;
+      }
+      .account-info {
+        color: #004d99;
+      }
+      #premium-client {
+        color: #00a04d;
+        font-weight: bold;
+      }
+
+      .compliance-alert {
+        color: #555;
+      }
+      .compliance-alert {
+        color: #cc0000 !important;
+      }
+
+      .parent-container {
+        color: #004d99;
+        font-family: "Courier New", Courier, monospace;
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-top: 10px;
+      }
+      .child-element {
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .contentAndTopic {
+          flex-direction: column;
+        }
+        .contents {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 13</b></h1>
+      <h2><b>CSS Cascading: Rules of Priority</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#rule1">Rule 1: Last Declaration Wins</a></li>
+          <li><a href="#rule2">Rule 2: Specificity</a></li>
+          <li><a href="#rule3">Rule 3: Inline Style Priority</a></li>
+          <li><a href="#rule4">Rule 4: The "!important" Override</a></li>
+          <li><a href="#inheritance">Inheritance</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- 13.1 Rule 1 -->
+        <div id="rule1">
+          <h1>13.1 Rule 1: The Last Declaration Will Win</h1>
+          <hr />
+          <p>
+            If two selectors are identical, the browser uses the one defined
+            <strong>last</strong> in the CSS file.
+          </p>
+          <div style="border: 1px solid #ccc; padding: 10px">
+            <p class="status-msg">
+              System Status: Offline (This text is RED because the red rule was
+              declared last).
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 13.2 Rule 2 -->
+        <div id="rule2">
+          <h1>13.2 Rule 2: The More Specific Declaration Will Win</h1>
+          <hr />
+          <p>
+            Browsers calculate a "specificity score". Higher specificity
+            overrides lower, regardless of order.
+          </p>
+          <div style="border: 1px solid #ccc; padding: 10px">
+            <p class="account-info">Standard Client (Blue by Class)</p>
+            <p class="account-info" id="premium-client">
+              Premium Client (Green by ID)
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 13.3 Rule 3 -->
+        <div id="rule3">
+          <h1>13.3 Rule 3: Inline Style is Preferred</h1>
+          <hr />
+          <p>Inline styles override both internal and external CSS.</p>
+          <div style="border: 1px solid #ccc; padding: 10px">
+            <p class="account-info" style="color: orange">
+              High Priority Notice (Orange - Inline wins over Class)
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 13.4 Rule 4 -->
+        <div id="rule4">
+          <h1>13.4 Rule 4: “!important” is the Strongest Rule</h1>
+          <hr />
+          <p>
+            The `!important` declaration overrides all other rules, including
+            inline styles.
+          </p>
+          <div style="border: 1px solid #ccc; padding: 10px">
+            <p class="compliance-alert" style="color: black">
+              MANDATORY AUDIT REQUIRED (Red - !important overrides inline black)
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 13.5 Inheritance -->
+        <div id="inheritance">
+          <h1>13.5 Inheritance</h1>
+          <hr />
+          <p>
+            Some CSS properties (like `color`, `font-family`) are passed down
+            from parent to child.
+          </p>
+          <div class="parent-container">
+            Parent Container (Blue, Courier Font)
+            <div class="child-element">
+              Child Element (inherits Blue + Courier Font)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html" class="current-chapter">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p style="color: #ffffff">
+        Copyright &copy; Modern Learning Hub Division
+      </p>
+      <address>
+        <p style="color: #ffffff">1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

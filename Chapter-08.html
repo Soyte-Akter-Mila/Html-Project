@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 08: Advanced HTML Structures</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .report-block {
+        display: block;
+        background-color: #ffffff;
+        border-left: 5px solid #004d99;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      .highlight-badge {
+        display: inline;
+        background-color: #e6f4ea;
+        color: #137333;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        font-weight: bold;
+        border: 1px solid #137333;
+      }
+      .dashboard-card-container {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+      }
+      .dashboard-card {
+        display: inline-block;
+        width: 200px;
+        height: 120px;
+        margin: 10px;
+        padding: 15px;
+        background: linear-gradient(135deg, #004d99 0%, #003366 100%);
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        vertical-align: top;
+      }
+      .dashboard-card h3 {
+        font-size: 1em;
+        margin-top: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 5px;
+      }
+      .dashboard-card .info {
+        font-size: 1.4em;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .dashboard-card {
+          width: 100%;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 08</b></h1>
+      <h2><b>HTML Advanced: Structural Efficiency in Learning</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#dataURIs">8.1 Data URIs (Embedded Assets)</a></li>
+          <li>
+            <a href="#blockElements">8.2 Block Elements (Report Structure)</a>
+          </li>
+          <li>
+            <a href="#inlineElements">8.3 Inline Elements (Text Formatting)</a>
+          </li>
+          <li>
+            <a href="#inlineBlockElements"
+              >8.4 Inline-Block Elements (Dashboard Cards)</a
+            >
+          </li>
+        </ol>
+      </nav>
+
+      <div class="topic">
+        <div id="dataURIs">
+          <h1>8.1 Data URIs (Embedded Learning Assets)</h1>
+          <hr />
+          <p>
+            Data URIs allow small images (like learning icons) to be embedded
+            directly into the HTML code as Base64 strings. This reduces HTTP
+            requests, speeding up the load time for educational portals.
+          </p>
+          <div class="report-block">
+            <h3>Secure Resource Status</h3>
+            <p>
+              <img
+                src="icon/locked.png"
+                alt="Lock Icon"
+                style="
+                  width: 16px;
+                  height: 16px;
+                  border-radius: 50%;
+                  display: inline-block;
+                "
+              />
+              Connection Encrypted. Assets loaded via Data URI.
+            </p>
+          </div>
+        </div>
+        <div id="blockElements">
+          <h1>8.2 Block Elements (Structuring Reports)</h1>
+          <hr />
+          <p>
+            Block-level elements (like &lt;div&gt;, &lt;p&gt;, &lt;section&gt;)
+            always start on a new line and take up the full width available.
+            They form the "bones" of educational reports.
+          </p>
+          <div class="report-block">
+            <h2>Annual Learning Summary 2025</h2>
+            <p>
+              This entire container is a block-level element. It pushes
+              subsequent content to the next line, creating a distinct section
+              for the report.
+            </p>
+          </div>
+          <div class="report-block" style="border-left-color: #cc0000">
+            <h2>Important Alert: Action Required</h2>
+            <p>
+              Block elements are perfect for separating critical alerts from
+              standard content streams.
+            </p>
+          </div>
+        </div>
+        <div id="inlineElements">
+          <h1>8.3 Inline Elements (Data Highlighting)</h1>
+          <hr />
+          <p>
+            Inline elements (like `&lt;span&gt;`, `&lt;a&gt;`, `&lt;strong&gt;`)
+            do not start on a new line and only take up as much width as
+            necessary. They are used to style specific data points within a text
+            block.
+          </p>
+          <div class="report-block">
+            <h3>Assignment Detail View</h3>
+            <p>
+              Assignment ID:
+              <span class="highlight-badge">ASG-998877</span> submitted on
+              <time>2025-11-18</time>. Status:
+              <span style="color: #00a04d; font-weight: bold">Completed </span>.
+            </p>
+            <p>
+              Please verify the <a href="#">teacher’s feedback</a> before final
+              submission.
+            </p>
+          </div>
+        </div>
+
+        <div id="inlineBlockElements">
+          <h1>8.4 Inline-Block Elements (Dashboard Layouts)</h1>
+          <hr />
+          <p>
+            <strong>display: inline-block</strong> allows elements to sit next
+            to each other (like inline elements) but still allows you to set
+            specific width, height, padding, and margins (like block elements).
+            This is ideal for dashboard cards.
+          </p>
+          <div class="dashboard-card-container">
+            <div class="dashboard-card">
+              <h3>Mathematics</h3>
+              <div class="info">Chapter 08</div>
+              <small>Progress: 80%</small>
+            </div>
+            <div
+              class="dashboard-card"
+              style="
+                background: linear-gradient(135deg, #006600 0%, #004d00 100%);
+              "
+            >
+              <h3>Science</h3>
+              <div class="info">Chapter 08</div>
+              <small>Progress: 65%</small>
+            </div>
+            <div
+              class="dashboard-card"
+              style="
+                background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+              "
+            >
+              <h3>History</h3>
+              <div class="info">Chapter 08</div>
+              <small>Progress: 50%</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html" class="current-chapter">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

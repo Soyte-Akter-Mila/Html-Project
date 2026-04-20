@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub -Chapter 12: CSS Selectors</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      
+     
+      .universal-demo * { 
+        color: #333;
+       }
+      h3 { 
+        color: #004d99; 
+      }
+      #main-heading {
+         /* text-align: center;  */
+         text-transform: uppercase; border-bottom: 2px solid #00a04d; 
+        }
+      .account-balance { 
+        font-weight: bold; 
+        color: #004d99; 
+      }
+      .account-balance.negative {
+         color: #cc0000;
+         }
+      a.audit-link:link { 
+        color: #004d99; 
+        text-decoration: none; 
+      }
+      a.audit-link:visited { 
+        color: #551a8b; 
+      }
+      .interactive-btn:hover { background-color: #003366;
+         color: white;
+          cursor: pointer;
+         }
+      .interactive-btn:active { 
+        transform: scale(0.98); 
+      }
+      input:disabled { 
+        background-color: #e0e0e0; 
+        cursor: not-allowed; 
+      }
+      input:checked + label { 
+        font-weight: bold; 
+        color: #00a04d;
+       }
+      input:required {
+         border-left: 3px solid #004d99; 
+        }
+      input:invalid { 
+        border-color: #cc0000;
+       }
+      ul.audit-list li:first-child { font-weight: bold;
+         color: #004d99; 
+        }
+      ul.audit-list li:nth-child(odd) { background-color: #f9f9f9; 
+      }
+      div.policy-section p:first-of-type { font-style: italic; 
+      }
+      p:empty { 
+        display: none; 
+      }
+      .disclaimer::first-line { 
+        font-weight: bold;
+         color: #cc0000; 
+        }
+      .amount::before {
+         content: "$ "; 
+         color: #555; 
+        }
+      div.dashboard > p { 
+        color: #004d99; 
+      }
+      h2 + p {
+         margin-top: 0; 
+         font-size: 0.9em; 
+        }
+      input[type="password"] {
+         border: 1px solid #cc0000;
+         }
+      a[href^="https"] { 
+        color: #00a04d; 
+      }
+
+      @media (max-width: 768px) {
+        .contentAndTopic { 
+          flex-direction: column; 
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 12</b></h1>
+      <h2><b>CSS Selectors: Targeting Financial Data</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#basicSelectors">Basic Selectors</a></li>
+          <li><a href="#pseudoClasses">CSS Pseudo-Classes</a></li>
+          ol>
+              <li><a href="#linkStatus">Status of Links</a></li>
+              <li><a href="#cursorInteraction">Cursor Interaction</a></li>
+              <li><a href="#elementStatus">Status of Elements</a></li>
+              <li><a href="#formValidation">Form Validation</a></li>
+              <li><a href="#childElements">Child Elements</a></li>
+              <li><a href="#typeElements">Type of Elements</a></li>
+              <li><a href="#otherPseudo">Other Pseudo-classes</a></li>
+            </ol>
+          </li>
+          <li><a href="#pseudoElements">CSS Pseudo-Elements</a></li>
+          <li><a href="#combinedSelectors">CSS Combined Selectors</a></li>
+          <li><a href="#attributeSelectors">CSS Attribute Selectors</a></li>
+          <li><a href="#grouping">Selector Grouping</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- 12.1 - 12.5 Basic Selectors  -->
+        <div id="basicSelectors">
+          <h1>12.1 - 12.5 Basic Selectors</h1>
+          <hr />
+
+           <!-- 12.1 Universal Selector -->
+
+          <div class="universal-demo">
+            <h3>12.1 Universal Selector (*)</h3>
+            <p>
+              The `*` selector applies a style to ALL elements.
+            </p>
+          </div>
+          
+          <!-- 12.2 Type Selector -->
+          <h3>12.2 Type Selector</h3>
+          <p>
+            Targeting all `&lt;h3&gt;`  elements with Bank Blue.
+          </p>
+
+           <!-- 12.3 ID Selector --> 
+          <h3 id="main-heading">12.3 ID Selector</h3>
+          <p>
+            This heading uses #main-heading.
+          </p>
+
+          <!-- 12.4 Class Selector -->
+          <h3>12.4 Class Selector</h3>
+          <p>
+            Account Balance: 
+            <span class="account-balance">$1,250.00</span>
+          </p>
+
+          <!-- 12.5 Multiple-Class Selector -->
+          <h3>12.5 Multiple-Class Selector</h3>
+          <p>
+            Overdraft Account: <span class="account-balance negative">-$50.00
+
+            </span>
+          </p>
+        </div>
+        <hr />
+
+        <!-- 12.6 CSS Pseudo-Classes -->
+        <div id="pseudoClasses">
+          <h1>12.6 CSS Pseudo-Classes</h1>
+          <hr />
+
+           <!-- 12.6.1 Status of Links -->
+          <div id="linkStatus">
+            <h3>12.6.1 Status of Links</h3>
+            <p>
+              <a href="#" class="audit-link">View Daily Audit Log</a>
+            </p>
+          </div>
+          <!-- 12.6.2 Cursor Interaction -->
+          <div id="cursorInteraction">
+            <h3>12.6.2 Cursor Interaction</h3>
+            <button class="interactive-btn">Hover to Authorize</button>
+          </div>
+
+          <!-- 12.6.3 Status of Elements -->
+          <div id="elementStatus">
+            <h3>12.6.3 Status of Elements</h3>
+            <input type="text" disabled value="Archived Account" /><br /><br />
+            <input type="checkbox" id="confirm" checked />
+            <label for="confirm">I agree to the Terms</label>
+          </div>
+
+            <!-- 12.6.4 Form Validation -->
+          <div id="formValidation">
+            <h3>12.6.4 Form Validation</h3>
+            <input type="email" placeholder="Enter Email" required />
+             <p>
+              If you type invalid text (not an email), the border turns red.
+            </p>
+          </div>
+
+           <!-- 12.6.5 Child Elements -->
+          <div id="childElements">
+            <h3>12.6.5 Child Elements</h3>
+            <ul class="audit-list">
+              <li>Transaction ID</li>
+              <li>TXN-001</li>
+              <li>TXN-002</li>
+              <li>TXN-003</li>
+              <li>TXN-004</li>
+            </ul>
+          </div>
+
+          <!-- 12.6.6 Type of Elements -->
+          <div id="typeElements">
+            <h3>12.6.6 Type of Elements</h3>
+            <div class="policy-section">
+              <p>This paragraph is italicized.</p>
+              <p>This is the second paragraph.</p>
+            </div>
+          </div>
+
+           <!-- 12.6.7 Other Pseudo-classes -->
+          <div id="otherPseudo">
+            <h3>12.6.7 Other Pseudo-classes</h3>
+            <p>The empty paragraph below is hidden by CSS:</p>
+            <p></p>
+            <!-- Empty element -->
+            <p>This paragraph is NOT empty, so it is visible.</p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 12.7 CSS Pseudo-Elements -->
+        <div id="pseudoElements">
+          <h1>12.7 CSS Pseudo-Elements</h1>
+          <hr />
+          <p class="disclaimer">WARNING: Authorized Access Only.<br />
+            This system is monitored.
+          </p>
+          <p class="amount">500.00
+
+          </p>
+        </div>
+        <hr />
+
+        <!-- 12.8 CSS Combined Selectors -->
+        <div id="combinedSelectors">
+          <h1>12.8 CSS Combined Selectors</h1>
+          <hr />
+          <div class="dashboard">
+            <h3>12.8.1 Child Selector</h3>
+            < <p>
+              This paragraph is a direct child of `.dashboard` (Styled Blue).
+            </p>
+            <div>
+              <p>Nested deeper.</p>
+            </div>
+          </div>
+          <h3>12.8.2 Adjacent Sibling Selector</h3>
+          <p>
+            This paragraph follows an H3.
+          </p>
+        </div>
+        <hr />
+
+        <!-- 12.9 CSS Attribute Selectors -->
+        <div id="attributeSelectors">
+          <h1>12.9 CSS Attribute Selectors</h1>
+          <hr />
+          <h3>[attribute="value"]</h3>
+          <input type="email" placeholder="Student Email Address" />
+
+          <h3>[attribute^="value"]</h3>
+          <a href="https://learninghub.edu">https://learninghub.edu</a><br />
+          <a href="http://legacyportal.net">http://legacyportal.net</a>
+        </div>
+        <hr />
+
+        <!-- 12.10 Selector Grouping -->
+        <div id="grouping">
+          <h1>12.10 Selector Grouping</h1><hr />
+          <p>
+            <code>h1, h2, h3 { color: #004d99; }</code><br />
+            Grouping allows Modern Learning Hub to style multiple headings consistently.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- START: Bottom Navigation Bar (Fixed for Chapter 12) -->
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html" class="current-chapter">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+      </div>
+      <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

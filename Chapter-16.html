@@ -1,0 +1,371 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub -  Chapter 16: Typography for Reports</title>
+   <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+
+      /* 16.1 Text Rendering */
+     .text-color-primary {
+      color: #004d99; 
+     }
+
+      .text-color-alert { 
+      color: #cc0000;
+      }
+
+      .decoration-underline {
+       text-decoration: underline; 
+        }
+      .decoration-through { 
+      text-decoration: line-through; 
+      color: #999; 
+      }
+
+      .transform-upper { 
+      text-transform: uppercase; letter-spacing: 1px; 
+     }
+     .transform-cap { 
+      text-transform: capitalize; 
+      }
+
+      .whitespace-pre {
+      white-space: pre;
+      font-family: monospace;
+      background-color: #f0f4f8;
+      padding: 10px;
+      border: 1px solid #ccc;
+      }
+
+      .overflow-ellipsis {
+      white-space: nowrap;
+      width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid #004d99;
+      padding: 5px;
+      }
+
+      .word-wrap-box {
+      width: 150px;
+      border: 1px solid #cc0000;
+      padding: 5px;
+      word-wrap: break-word;
+      }
+
+      /* 16.2 Spacing */
+      .spacing-letter {
+       letter-spacing: 2px; 
+      }
+      .spacing-word {
+       word-spacing: 5px;
+       }
+      .spacing-line {
+       line-height: 1.8;
+       }
+
+     /* 16.3 Position */
+      .align-center { 
+      text-align: center;
+      }
+     .align-right {
+       text-align: right;
+       }
+     .align-justify { 
+      text-align: justify;
+     }
+      .indent-text { 
+      text-indent: 50px; 
+      }
+
+     /* 16.4 Fonts */
+      .font-family-serif { 
+      font-family: "Times New Roman", 
+      serif; 
+     }
+      .font-weight-bold { 
+      font-weight: bold;
+     }
+      .font-style-italic { 
+      font-style: italic; 
+     }
+      .font-variant-small {
+       font-variant: small-caps; 
+      }
+
+     @font-face {
+      font-family: "LearningHubFont";
+      src: local("Arial"); 
+     }
+     .custom-font { font-family: "LearningHubFont",  sans-serif;
+      }
+
+      @media (max-width: 768px) {
+      .contentAndTopic {
+        flex-direction: column;
+      }
+      .contents, .topic {
+        flex: 1 1 100%;
+      }
+        }
+
+      </style>
+     </head>
+      <body>
+        <div class="chapterName">
+          <h1><b>CHAPTER 16</b></h1>
+          <h2><b>CSS Text: Typography for Learning Modules</b></h2>
+        </div>
+
+        <div class="contentAndTopic">
+        <div class="contents">
+          <h2>Table of Contents</h2>
+          <ol>
+            <li>
+              <a href="#textRendering">Text Rendering</a>
+              <ol>
+                <li><a href="#settingColor">Setting Color</a></li>
+                <li><a href="#textDecoration">Text Decoration</a></li>
+                <li><a href="#textTransform">Text Transform</a></li>
+                <li><a href="#whitespace">Handling Whitespaces</a></li>
+                <li><a href="#textOverflow">Text Overflow</a></li>
+                <li><a href="#wordWrap">Word Wrap & Break</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="#textSpacing">Text Spacing</a>
+              <ol>
+                <li><a href="#letterSpacing">Letter Spacing</a></li>
+                <li><a href="#wordSpacing">Word Spacing</a></li>
+                <li><a href="#lineHeight">Line Height</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="#textPosition">Text Position</a>
+              <ol>
+                <li><a href="#textAlign">Text Align</a></li>
+                <li><a href="#textIndent">Text Indent</a></li>
+              </ol>
+            </li>
+            <li>
+              <a href="#cssFonts">CSS Fonts</a>
+              <ol>
+                <li><a href="#fontFamily">Font Family</a></li>
+                <li><a href="#fontSize">Font Size</a></li>
+                <li><a href="#fontWeight">Font Weight</a></li>
+                <li><a href="#fontStyle">Font Style</a></li>
+                <li><a href="#fontVariant">Font Variant</a></li>
+                <li><a href="#fontFace">The @font-face Rule</a></li>
+              </ol>
+            </li>
+            </ol>
+            </div>
+
+          <div class="topic">
+          <div id="textRendering">
+          <h1 id="textRendering">16.1 Text Rendering</h1>
+          <hr/>
+
+            <div id="settingColor"></div>
+          <h3 id="settingColor">16.1.1 Setting Color</h3>
+          <p class="text-color-primary">Standard EduHub Blue
+
+          </p>
+          <p class="text-color-alert">Overdraft Alert (Urgency)</p>
+            </div>
+          <br />
+
+          <div id="textDecoration">
+          <h3>16.1.2 Text Decoration</h3>
+          <p class="decoration-underline"> Underline: Used for critical links or emphasis.</p>
+          <p class="decoration-through">Line-through <del>$50.00</del> 
+          </p>
+          </div>
+          <br />
+
+          <div id="textTransform">
+          <h3>16.1.3 Text Transform</h3>
+          <p class="transform-upper">confidential report</p>
+          <p class="transform-cap">student name field </p>
+          </div>
+          <br />
+
+          <div id="whitespace">
+            <h3>16.1.4 Handling Whitespaces</h3>
+            <p>Using `white-space: pre` preserves formatting in audit logs:</p>
+          <div class="whitespace-pre">
+          LOG: [2026-02-20 16:00] Connection      Timeout
+          [2026-02-20 16:01] Retry Attempt #1
+          </div>
+           </div>
+          <br />
+          
+          <div id="textOverflow">
+          <h3>16.1.5 Text Overflow</h3>
+          <p>Long module titles are truncated with an ellipsis:</p>
+          <div class="overflow-ellipsis">
+         Modern Learning Hub Advanced Typography and Responsive Design Module
+        </div>
+        </div>
+        <br/>
+          
+          <div id="wordWrap">  
+          <h3>16.1.6 Word Wrap & 16.1.7 Word Break</h3>
+          <p>Handling very long transaction IDs in narrow columns:</p>
+          <div class="word-wrap-box">
+          LONGWORDDEMOEXAMPLE1234567890
+        </div>
+          </div>
+        <hr/>
+
+        <div id="textSpacing">
+          <h1>16.2 Text Spacing (Readability
+          </h1>
+          <hr/>
+
+         <div id="letterSpacing">
+         <h3>16.2.1 Letter Spacing</h3>
+          <p class="spacing-letter">
+         MODERN LEARNING HUB (Increased spacing for headers)
+          </p>
+          </div>
+
+          <div id="wordSpacing">
+         <h3>16.2.2 Word Spacing</h3>
+           <p class="spacing-word">Educational Module Overview </p>
+            </div>
+          
+          <div id="lineHeight">
+          <h3>16.2.3 Line Height (Leading)</h3>
+          <p class="spacing-line">
+            Line Height Example for readability in dense text.
+          </p>
+          </div>
+            </div>
+            <hr />
+
+            <div id="textPosition">
+              <h1>16.3 Text Position (Alignment)</h1>
+              <hr />
+              <div id="textAlign">
+                <h3>16.3.1 Text Align</h3>
+
+          <p 
+           class="align-center"><strong>Module Title</strong></</P>
+          <p class="align-right">
+          Score: <strong>95/100</strong> (Right-aligned for numeric data)
+          </p>
+
+          <p class="align-justify" style="width: 80%; margin: 0 auto">
+          <strong>Justified Text:</strong> This paragraph is justified. In
+          learning modules or study guides, justified text creates clean edges
+          on both sides, making the content look structured and easy to read. 
+          </p>
+          </div>
+          <br />
+
+          <div id="textIndent">
+         <h3>16.3.2 Text Indent</h3>
+          <p class="indent-text">
+          In study materials, the first line of a paragraph is often indented to make the content look organized and easier to read.
+          </p>
+          </div>
+           </div>
+            <hr />
+
+          <div id="cssFonts">
+              <h1>16.4 CSS Fonts (Typography)</h1>
+              <hr />
+
+            <div id="fontFamily">
+                <h3>16.4.1 Font Family</h3>
+                <p class="font-family-serif">
+                  Serif Font (Times New Roman) - Used for formal print-style
+                  reports.
+                </p>
+                <p style="font-family: Arial, sans-serif">
+                  Sans-Serif Font (Arial) - Used for digital screens and dashboards.
+                 </p>
+                 </div>
+
+                <div id="fontSize">
+                <h3>16.4.2 Font Size</h3>
+                <p style="font-size: 12px">Small Print (12px) - Disclaimers</p>
+                <p style="font-size: 16px">
+                  Standard Body (16px) - General Reading
+                </p>
+                <p style="font-size: 24px">Header (24px) - Section Titles
+
+                </p>
+              </div>
+
+              <div id="fontWeight">
+                <h3>16.4.3 Font Weight</h3>
+                <p class="font-weight-bold">
+                  Bold Weight - Important Figures ($500.00)
+                </p>
+              </div>
+
+              <div id="fontStyle">
+                <h3>16.4.4 Font Style</h3>
+                <p class="font-style-italic">
+                  Italic Style - *Notes and annotations*
+                </p>
+              </div>
+
+              <div id="fontVariant">
+                <h3>16.4.5 Font Variant</h3>
+                <p class="font-variant-small">Small-Caps - ACRONYMS AND HEADINGS</p>
+              </div>
+
+              <div id="fontFace">
+                <h3>16.4.6 The @font-face Rule</h3>
+                <p class="custom-font">
+                  This text uses a custom font family defined via `@font-face`. This
+                  ensures that the specific corporate branding font renders
+                  correctly on all client devices.
+                </p>
+              </div>
+            </div>
+          </div>
+         </div>
+            <div class="bottom-navigation-bar">
+              <a href="Homepage.html">Home</a>
+              <a href="chapter-01.html">01</a>
+              <a href="chapter-02.html">02</a>
+              <a href="chapter-03.html">03</a>
+              <a href="chapter-04.html">04</a>
+              <a href="chapter-05.html">05</a>
+              <a href="chapter-06.html">06</a>
+              <a href="chapter-07.html">07</a>
+              <a href="chapter-08.html">08</a>
+              <a href="chapter-11.html">11</a>
+              <a href="chapter-12.html">12</a>
+              <a href="chapter-13.html">13</a>
+              <a href="chapter-14.html">14</a>
+              <a href="chapter-15.html">15</a>
+              <a href="chapter-16.html" class="current-chapter">16</a>
+              <a href="chapter-17.html">17</a>
+              <a href="chapter-18.html">18</a>
+              <a href="chapter-19.html">19</a>
+              <a href="chapter-20.html">20</a>
+              <a href="chapter-21.html">21</a>
+              <a href="chapter-22.html">22</a>
+            </div>
+           <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>
+
+

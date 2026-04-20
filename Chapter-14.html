@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 14 - CSS Box Model</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .box-container {
+        background-color: #f0f4f8;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+      }
+
+      .demo-box {
+        width: 300px;
+        padding: 20px;
+        border: 10px solid #004d99;
+        background-color: white;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .border-box-model {
+        box-sizing: border-box;
+      }
+
+      .content-box-model {
+        box-sizing: content-box;
+      }
+
+      .margin-box {
+        background-color: #e6f2ff;
+        border: 1px solid #004d99;
+        padding: 10px;
+        width: 50%;
+      }
+
+      .auto-margin {
+        margin: 0 auto;
+      }
+
+      .collapse-1 {
+        margin-bottom: 30px;
+        background-color: #ffe6e6;
+        padding: 10px;
+      }
+
+      .collapse-2 {
+        margin-top: 20px;
+        background-color: #e6ffe6;
+        padding: 10px;
+      }
+
+      .outline-box {
+        border: 2px solid #004d99;
+        outline: 5px solid #00a04d;
+        outline-offset: 5px;
+        padding: 10px;
+        margin: 20px;
+        background-color: white;
+      }
+
+      .border-style-solid {
+        border: 3px solid #004d99;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+      .border-style-dashed {
+        border: 3px dashed #cc0000;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+      .border-style-dotted {
+        border: 3px dotted #00a04d;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+      .border-style-double {
+        border: 5px double #333;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+
+      .radius-box {
+        border: 2px solid #004d99;
+        border-radius: 15px;
+        padding: 15px;
+        background-color: #f9f9f9;
+      }
+
+      .padding-visual {
+        background-color: #004d99;
+        color: white;
+        padding: 20px 40px;
+        display: inline-block;
+      }
+
+      .dimension-box {
+        width: 50%;
+        height: 100px;
+        background-color: #e0e0e0;
+        border: 1px solid #999;
+        overflow: auto;
+        padding: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .contentAndTopic {
+          flex-direction: column;
+        }
+        .contents {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+        .demo-box,
+        .margin-box,
+        .dimension-box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 14</b></h1>
+      <h2><b>CSS Box Model: Structuring Financial Data</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#boxSizing">Box Sizing Types</a>
+            <ol>
+              <li><a href="#borderBox">Border Box</a></li>
+              <li><a href="#contentBox">Content Box</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#cssMargins">CSS Margins</a>
+            <ol>
+              <li><a href="#autoMargin">Auto Margin</a></li>
+              <li><a href="#collapsingMargins">Collapsing Margins</a></li>
+            </ol>
+          </li>
+          <li><a href="#cssOutline">CSS Outline</a></li>
+          <li>
+            <a href="#cssBorders">CSS Borders</a>
+            <ol>
+              <li><a href="#borderStyles">Border Styles</a></li>
+              <li><a href="#borderRadius">Border Radius</a></li>
+              <li><a href="#borderImages">Border Images</a></li>
+            </ol>
+          </li>
+          <li><a href="#cssPadding">CSS Padding</a></li>
+          <li><a href="#cssDimensions">CSS Width and Height</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <div id="boxSizing">
+          <h1>14.1 Box Sizing Types (Layout Calculation)</h1>
+          <hr />
+          <p>
+            The `box-sizing` property defines how width/height are calculated.
+          </p>
+          <div class="box-container">
+            <div id="borderBox">
+              <h3>14.1.1 Border Box (Recommended)</h3>
+              <div class="demo-box border-box-model">
+                Width: 300px (Padding + Border INCLUDED)
+              </div>
+              <p>
+                This ensures the element stays exactly 300px wide, fitting
+                perfectly into grid layouts.
+              </p>
+            </div>
+            <br />
+            <div id="contentBox">
+              <h3>14.1.2 Content Box (Default)</h3>
+              <div class="demo-box content-box-model">
+                Width: 300px + Padding + Border = Larger than 300px
+              </div>
+              <p>
+                The element grows larger than 300px because padding/border are
+                added *outside* the width.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssMargins">
+          <h1>14.2 CSS Margins</h1>
+          <hr />
+          <p>
+            Margins create space *outside* the border, separating this component
+            from others.
+          </p>
+          <div id="autoMargin">
+            <h3>14.2.1 Auto Margin</h3>
+            <div class="margin-box auto-margin">
+              Centered using margin: 0 auto;
+            </div>
+          </div>
+          <div id="collapsingMargins">
+            <h3>14.2.2 Collapsing Margins</h3>
+            <div class="collapse-1">Paragraph 1 (Margin Bottom: 30px)</div>
+            <div class="collapse-2">
+              Paragraph 2 (Margin Top: 20px)
+              <br />
+              Result: The distance between these two is **30px** (the larger of
+              the two), not 50px.
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssOutline">
+          <h1>14.3 CSS Outline</h1>
+          <hr />
+          <p>
+            An outline is a line drawn *outside* the elements border. Unlike
+            borders, outlines do not take up space. They are often used to
+            highlight active input fields for accessibility.
+          </p>
+          <div class="outline-box">Active Transaction Input Field</div>
+        </div>
+        <hr />
+
+        <div id="cssBorders">
+          <h1>14.4 CSS Borders</h1>
+          <hr />
+          <div id="borderStyles">
+            <h3>14.4.1 Border Styles</h3>
+            <div class="border-style-solid">Solid Border</div>
+            <div class="border-style-dashed">Dashed Border</div>
+            <div class="border-style-dotted">Dotted Border</div>
+            <div class="border-style-double">Double Border</div>
+          </div>
+          <div id="borderRadius">
+            <h3>14.4.2 Border Radius</h3>
+            <div class="radius-box">Rounded Corners</div>
+          </div>
+          <div id="borderImages">
+            <h3>14.4.3 Border Images</h3>
+            <p>border-image: url(border.png) 30 round;</p>
+          </div>
+        </div>
+        <hr />
+
+        <div id="cssPadding">
+          <h1>14.5 CSS Padding</h1>
+          <hr />
+          <div class="padding-visual">Invest Now</div>
+        </div>
+        <hr />
+
+        <div id="cssDimensions">
+          <h1>14.6 CSS Width and Height</h1>
+          <hr />
+          <div class="dimension-box">
+            Fixed Height Container with overflow:auto<br />
+            Transaction #1<br />Transaction #2<br />Transaction #3
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html" class="current-chapter">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

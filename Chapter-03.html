@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern learning Hub- Chapter 03: HTML Style & Formatting</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .formatting-demo {
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        margin-bottom: 20px;
+      }
+      .formatting-demo h3 {
+        margin-top: 0;
+        color: #004d99;
+        font-size: 1.1em;
+      }
+      @media (max-width: 768px) {
+        .formatting-demo {
+          padding: 10px;
+          font-size: 0.9em;
+        }
+        .contents {
+          font-size: 0.9em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contents ol {
+          padding-left: 20px;
+        }
+        .bottom-navigation-bar {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          font-size: 0.85em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 03</b></h1>
+      <h2><b>HTML Style: Formatting Educational Documents</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#formattingElements">3.1 Formatting Elements</a>
+            <ol>
+              <li><a href="#bold">Bold (`&lt;b&gt;`)</a></li>
+              <li><a href="#italic">Italic (`&lt;i&gt;`)</a></li>
+              <li>
+                <a href="#underline">Underline/Insert (`&lt;u&gt;`, `&lt;ins&gt;`)</a></li>
+              <li>
+                <a href="#strike">Strikethrough/Delete (`&lt;s&gt;`, `&lt;del&gt;`)</a></li>
+              <li>
+                <a href="#mark">Highlight (`&lt;mark&gt;`)</a></li>
+              <li>
+                <a href="#subSup">Subscript/Superscript (`&lt;sub&gt;`, `&lt;sup&gt;`)</a></li>
+            </ol>
+          </li>
+          <li><a href="#styleAttribute">3.2 HTML Style Attribute</a></li>
+        </ol>
+      </nav>
+
+      <div class="topic">
+        <!-- 3.1 FORMATTING ELEMENTS -->
+        <div id="formattingElements">
+          <h1>3.1 Formatting Elements (Document Emphasis)</h1>
+          <hr />
+          <p>
+            Formatting elements are used to give text specific meaning or visual
+            emphasis, critical for clarity in educational notes and study guides.
+          </p>
+
+          <!--3.1.1 Bold -->
+          <div id="bold" class="formatting-demo">
+            <h3>3.1.1 Bold (`&lt;b&gt;`) - Visual Emphasis</h3>
+            <p>
+              Used to draw attention without implying strong importance.
+            
+            </p>
+            <p>
+              <b>Key Formula:</b> The Pythagorean theorem states that a² + b² = c².
+            </p>
+          </div>
+
+          <!--3.1.2 Italic -->
+          <div id="italic" class="formatting-demo">
+            <h3>3.1.2 Italic (&lt;i&gt;) - Alternate Voice</h3>
+            <p>Used for technical terms, foreign phrases, or thoughts.</p>
+            <p>
+              The Latin phrase <i>Q.E.D.</i> means "which was to be demonstrated."
+            </p>
+          </div>
+
+          <!--3.1.3 Underline/Insert -->
+          <div id="underline" class="formatting-demo">
+            <h3>3.1.3 Underline (&lt;u&gt;) or Insert (&lt;ins&gt;)</h3>
+            <p>
+              &lt;u&gt; renders a simple underline. &lt;ins&gt; indicates
+              text that has been added to a document (useful for updated notes).
+            </p>
+            <p>
+              <u>Geometry Module</u> terms apply.<br />
+              Updated Policy: <ins>Extra practice sheets provided for students.</ins>
+            </p>
+          </div>
+
+          <!--  3.1.4 Strikethrough/Delete -->
+          <div id="strike" class="formatting-demo">
+            <h3>3.1.4 Strikethrough (`&lt;s&gt;`) or Delete (`&lt;del&gt;`)</h3>
+            <p>
+              Used to show data that is no longer accurate or has been removed.
+            </p>
+            <p>
+              Old Formula: <del>E = mc³</del><br />
+              <s>Incorrect Definition</s> (Revised in updated notes)
+              <span style="color: #00a04d; font-weight: bold"
+              </span
+              ><br />
+            </p>
+          </div>
+
+          <!--3.1.5 Highlight -->
+          <div id="mark" class="formatting-demo">
+            <h3>3.1.5 Highlight (`&lt;mark&gt;`) - Key Information</h3>
+            <p>Highlights text for reference or importance.</p>
+            <p>
+              Please note that the <mark>Exam Date is fixed</mark> and cannot be changed.
+            </p>
+          </div>
+
+          <!-- 3.1.6 Subscript/Superscript -->
+          <div id="subSup" class="formatting-demo">
+            <h3>3.1.6 Subscript (`&lt;sub&gt;`) and Superscript (`&lt;sup&gt;`)</h3>
+            <p>
+              Essential for mathematical formulas and footnotes.
+            </p>
+            <p>
+              Water formula: H<sub>2</sub>O<br />
+              Area of a square: a<sup>2</sup>
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 3.2 HTML STYLE ATTRIBUTE -->
+        <div id="styleAttribute">
+          <h1>3.2 HTML Style Attribute (Inline Styling)</h1>
+          <hr />
+          <p>
+            The style attribute allows you to apply CSS directly to an element.
+            While external stylesheets are preferred, inline styles are useful for quick overrides.
+          </p>
+
+          <div class="formatting-demo">
+            <h2
+              style="
+                color: #004d99;
+                text-align: center;
+                border-bottom: 2px solid #00a04d;
+              "
+            >
+              EduHub Portal
+            </h2>
+            <p
+              style="
+                font-size: 18px;
+                color: #333333;
+                background-color: #e6f2ff;
+                padding: 10px;
+              "
+            >
+              This paragraph uses inline styles to set font size, text color,
+              background color, and padding directly within the HTML tag.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+     <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html" class="current-chapter">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+      <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

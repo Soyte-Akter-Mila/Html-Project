@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 11: Introduction to CSS</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .internal-style-box {
+        background-color: #e6f2ff;
+        border: 2px solid #004d99;
+        padding: 15px;
+        margin-bottom: 20px;
+        color: #004d99;
+        font-weight: bold;
+      }
+      .unit-example-box {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+      .unit-example-box h4 {
+        margin-top: 0;
+        color: #333;
+      }
+      .px-unit {
+        font-size: 24px;
+      }
+      .pt-unit {
+        font-size: 18pt;
+      }
+      .parent-em {
+        font-size: 20px;
+        background-color: #ccffcc;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+      .em-unit {
+        font-size: 1.5em;
+      }
+      .rem-unit {
+        font-size: 1.5rem;
+      }
+      .shorthand-box {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border: 5px solid #00a04d;
+        margin: 20px 0 10px 0;
+        padding: 10px 15px;
+        background-color: #ffffff;
+      }
+      .non-shorthand-box {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #cc0000;
+        margin: 20px 0 10px 0;
+        padding: 10px 15px;
+        background-color: #ffffff;
+        overflow-x: auto;
+      }
+
+      @media (max-width: 768px) {
+        .shorthand-box,
+        .non-shorthand-box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 11</b></h1>
+      <h2><b>Introduction to CSS: Styling the Learning Interface</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#cssIntro">CSS Introduction (Syntax & Comments)</a></li>
+          <li>
+            <a href="#cssUnits">CSS Units (Precision & Scaling)</a>
+            <ol>
+              <li><a href="#absoluteLengths">Absolute Lengths</a></li>
+              <li><a href="#relativeLengths">Relative Lengths (em, rem)</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#shorthandProperties">Shorthand Properties (Efficiency)</a>
+          </li>
+          <li><a href="#cssPlacement">CSS Placement (Where to Put CSS)</a></li>
+          <li><a href="#userAgents">User Agent Styles</a></li>
+        </ol>
+      </nav>
+
+      <div class="topic">
+        <div id="cssIntro">
+          <h1>11.1 Syntax & 11.2 Comments (System Documentation)</h1>
+          <hr />
+          <p>
+            CSS (Cascading Style Sheets) governs the visual presentation of our
+            educational dashboard. Correct syntax is critical for consistent
+            application across all browsers.
+          </p>
+          <h2>11.1 CSS Syntax</h2>
+          <pre style="background: #f0f4f8; padding: 10px; border-radius: 4px">
+/* Selector targets the element to be styled */
+.account-balance {
+  color: #004d99; /* Declares the text color */
+  font-size: 1.5rem; /* Declares the text size */
+}
+        </pre
+          >
+          <h2>11.2 Comments in CSS</h2>
+          <pre style="background: #f0f4f8; padding: 10px; border-radius: 4px">
+/* --- BEGIN Q4 2025 STYLING AUDIT --- */
+/* Ensure all critical alerts use 'red' */
+.alert-critical {
+  /* Do not delete: Required by Accessibility Standard AA */
+  color: red;
+}
+        </pre
+          >
+        </div>
+        <div id="cssUnits">
+          <h1>11.3 CSS Units (Precision and Scaling)</h1>
+          <hr />
+          <div id="absoluteLengths">
+            <h2>11.3.1 Absolute Lengths (Fixed Dimensions)</h2>
+            <div class="unit-example-box">
+              <h4>Pixel (px) Example</h4>
+              <p class="px-unit">This text size is 24px.</p>
+            </div>
+            <div class="unit-example-box">
+              <h4>Point (pt) Example</h4>
+              <p class="pt-unit">This text size is 18pt.</p>
+            </div>
+          </div>
+          <div id="relativeLengths">
+            <h2>11.3.2 Relative Lengths (Adaptive Scaling)</h2>
+            <div class="parent-em">
+              <h3>11.3.2.1 em (Relative to Parent)</h3>
+              <p>Parent Font Size: 20px</p>
+              <p class="em-unit">Child text is 1.5em.</p>
+            </div>
+            <div class="unit-example-box">
+              <h3>11.3.2.2 rem (Relative to Root)</h3>
+              <p class="rem-unit">This text is 1.5rem.</p>
+            </div>
+          </div>
+        </div>
+        <div id="shorthandProperties">
+          <h1>11.4 Shorthand Properties (Coding Efficiency)</h1>
+          <hr />
+          <div class="shorthand-box">
+            <pre>
+border: 5px solid #00a04d; margin: 20px 0 10px 0; padding: 10px 15px;</pre
+            >
+          </div>
+          <div class="non-shorthand-box">
+            <pre>
+width: 300px;
+height: 100px;
+border-width: 5px;
+border-style: solid;
+border-color: #cc0000;
+margin-top: 20px;
+margin-bottom: 10px;
+padding: 10px 15px;
+background-color: #ffffff;
+          </pre
+            >
+          </div>
+        </div>
+        <div id="cssPlacement">
+          <h1>11.5 CSS Placement & 11.6 User Agent Styles</h1>
+          <hr />
+          <div id="inlineCSS">
+            <h3>Inline CSS</h3>
+            <p style="color: #cc0000; font-weight: bold">
+              Inline CSS is applied directly to an element using the style
+              attribute.
+            </p>
+          </div>
+          <div id="internalCSS">
+            <h3>Internal CSS</h3>
+            <div class="internal-style-box">
+              Internal CSS is placed within &lt;style&gt; tags in the document's
+              &lt;head&gt;.
+            </div>
+          </div>
+          <div id="externalCSS">
+            <h3>External CSS</h3>
+            <p>
+              External CSS is in a separate file (e.g., Education_style.css) and
+              linked via &lt;link&gt;. This is the standard method for global
+              branding.
+            </p>
+          </div>
+          <h2>11.6 User Agent Styles</h2>
+          <p>
+            These are the default styles provided by the browser. Your custom
+            CSS overrides these defaults.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html" class="current-chapter">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

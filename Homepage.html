@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Education Portal</title>
+    <link rel="icon" type="image/x-icon" href="icon/icon2.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0a1628;
+        --blue: #1a56db;
+        --sky: #e8f0fe;
+        --green: #0d9f6e;
+        --gold: #f59e0b;
+        --cream: #fefcf7;
+        --text: #1e293b;
+        --muted: #64748b;
+        --border: #e2e8f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(254, 252, 247, 0.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+        height: 72px;
+      }
+
+      .logo {
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--navy);
+        letter-spacing: -0.5px;
+        text-decoration: none;
+      }
+      .logo em {
+        color: var(--green);
+        font-style: normal;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      nav ul li {
+        position: relative;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 8px;
+        display: block;
+        transition: all 0.2s;
+      }
+      nav ul li a:hover {
+        color: var(--navy);
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 10px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        max-height: 360px;
+        overflow-y: auto;
+      }
+      nav ul li:hover .dropdown,
+      nav ul li:focus-within .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown a {
+        font-size: 14px !important;
+        padding: 9px 14px !important;
+        border-radius: 8px;
+        color: var(--text) !important;
+        font-weight: 400 !important;
+      }
+      .dropdown a:hover {
+        background: var(--sky) !important;
+        color: var(--blue) !important;
+      }
+
+      .btn-nav {
+        background: var(--navy);
+        color: white !important;
+        padding: 9px 20px !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s !important;
+      }
+      .btn-nav:hover {
+        background: var(--blue) !important;
+        color: white !important;
+      }
+
+      /* ── TICKER ── */
+      .ticker-wrap {
+        position: fixed;
+        top: 72px;
+        width: 100%;
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+        padding: 7px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: 900;
+      }
+      .ticker {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 40s linear infinite;
+      }
+      .ticker span {
+        margin-right: 50px;
+      }
+      .ticker .highlight {
+        color: #4ade80;
+        font-weight: 600;
+      }
+      .ticker .warning {
+        color: var(--gold);
+        font-weight: 600;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        padding-top: 130px;
+        padding-bottom: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+
+      .hero-left {
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(13, 159, 110, 0.1);
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 50px;
+        border: 1px solid rgba(13, 159, 110, 0.2);
+        margin-bottom: 24px;
+        letter-spacing: 0.3px;
+      }
+      .badge::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: var(--green);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: 58px;
+        font-weight: 900;
+        line-height: 1.1;
+        color: var(--navy);
+        margin-bottom: 24px;
+        letter-spacing: -1.5px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--blue);
+      }
+
+      .hero p {
+        font-size: 17px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 480px;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+      }
+
+      .btn-primary {
+        background: var(--navy);
+        color: white;
+        border: none;
+        padding: 15px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.25s;
+        box-shadow: 0 4px 20px rgba(10, 22, 40, 0.25);
+      }
+      .btn-primary:hover {
+        background: var(--blue);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(26, 86, 219, 0.35);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--navy);
+        border: 2px solid var(--border);
+        padding: 15px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.25s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      .stats {
+        display: flex;
+        gap: 36px;
+      }
+      .stat-item {
+      }
+      .stat-number {
+        font-family: "Fraunces", serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .stat-label {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      /* ── HERO RIGHT ── */
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .id-card {
+        background: white;
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      .id-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--blue), var(--green));
+      }
+
+      .id-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+      .id-card-logo {
+        font-family: "Fraunces", serif;
+        font-size: 16px;
+        font-weight: 900;
+        color: var(--navy);
+      }
+      .id-card-logo em {
+        color: var(--green);
+        font-style: normal;
+      }
+
+      .id-badge {
+        background: var(--sky);
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .id-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blue), var(--green));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-size: 28px;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .id-name {
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .id-role {
+        font-size: 13px;
+        color: var(--green);
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .id-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .id-field label {
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-bottom: 3px;
+        font-weight: 600;
+      }
+      .id-field span {
+        font-size: 15px;
+        color: var(--navy);
+        font-weight: 600;
+        font-family: "Fraunces", serif;
+      }
+
+      /* ── FLOATING CARDS ── */
+      .float-card {
+        background: white;
+        border-radius: 16px;
+        padding: 18px 22px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .float-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .float-icon.blue {
+        background: var(--sky);
+      }
+      .float-icon.green {
+        background: rgba(13, 159, 110, 0.1);
+      }
+
+      .float-text strong {
+        display: block;
+        font-size: 15px;
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .float-text span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .float-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      /* ── SECTION: COURSES ── */
+      .section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 60px;
+      }
+
+      .section-label {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--blue);
+        margin-bottom: 12px;
+      }
+
+      .section h2 {
+        font-family: "Fraunces", serif;
+        font-size: 42px;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+      }
+
+      .section-sub {
+        font-size: 17px;
+        color: var(--muted);
+        max-width: 500px;
+        line-height: 1.6;
+        margin-bottom: 48px;
+      }
+
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .course-card {
+        background: white;
+        border-radius: 20px;
+        padding: 28px;
+        border: 1px solid var(--border);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .course-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--green));
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+      .course-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      }
+      .course-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .course-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 18px;
+      }
+      .course-tag {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 4px 10px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .course-card h3 {
+        font-family: "Fraunces", serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      .course-card p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .course-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .course-chapters {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .course-chapters strong {
+        color: var(--navy);
+      }
+      .course-arrow {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--sky);
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.2s;
+      }
+      .course-card:hover .course-arrow {
+        background: var(--blue);
+        color: white;
+      }
+
+      /* ── BANNER ── */
+      .cta-banner {
+        background: var(--navy);
+        margin: 0 60px;
+        border-radius: 28px;
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-banner::before {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -80px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(26, 86, 219, 0.3);
+      }
+      .cta-banner::after {
+        content: "";
+        position: absolute;
+        left: 40%;
+        bottom: -60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(13, 159, 110, 0.2);
+      }
+      .cta-text {
+        position: relative;
+        z-index: 1;
+      }
+      .cta-text h2 {
+        font-family: "Fraunces", serif;
+        font-size: 38px;
+        font-weight: 900;
+        color: white;
+        line-height: 1.15;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+      .cta-text p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .cta-actions {
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .btn-cta {
+        background: white;
+        color: var(--navy);
+        border: none;
+        padding: 16px 36px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.25s;
+      }
+      .btn-cta:hover {
+        background: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        margin-top: 80px;
+        background: white;
+        border-top: 1px solid var(--border);
+        padding: 32px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      footer p {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .footer-logo {
+        font-family: "Fraunces", serif;
+        font-size: 18px;
+        font-weight: 900;
+        color: var(--navy);
+      }
+      .footer-logo em {
+        color: var(--green);
+        font-style: normal;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 968px) {
+        nav {
+          padding: 0 24px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 130px 24px 60px;
+          gap: 40px;
+        }
+        .hero h1 {
+          font-size: 42px;
+        }
+        .courses-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cta-banner {
+          margin: 0 24px;
+          padding: 40px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .section {
+          padding: 60px 24px;
+        }
+        footer {
+          padding: 24px;
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+        }
+      }
+      @media (max-width: 640px) {
+        .courses-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 34px;
+        }
+        .float-cards {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          gap: 20px;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-left > * {
+        animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-left .badge {
+        animation-delay: 0.1s;
+      }
+      .hero-left h1 {
+        animation-delay: 0.2s;
+      }
+      .hero-left p {
+        animation-delay: 0.3s;
+      }
+      .hero-left .btn-group {
+        animation-delay: 0.4s;
+      }
+      .hero-left .stats {
+        animation-delay: 0.5s;
+      }
+      .id-card {
+        animation: fadeUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .float-cards {
+        animation: fadeUp 0.7s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">Modern<em>LearningHub</em></div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li tabindex="0">
+          <a href="#">Courses ▾</a>
+          <div class="dropdown">
+            <a href="#">Web Development</a>
+            <a href="#">Programming</a>
+            <a href="#">Design</a>
+            <a href="#">Business Skills</a>
+          </div>
+        </li>
+        <li tabindex="0">
+          <a href="#">Book ▾</a>
+          <div class="dropdown">
+            <a href="chapter-01.html">01. Getting to Know HTML</a>
+            <a href="chapter-02.html">02. HTML Elements</a>
+            <a href="chapter-03.html">03. HTML Styles</a>
+            <a href="chapter-04.html">04. Semantic HTML</a>
+            <a href="chapter-05.html">05. Web Forms</a>
+            <a href="chapter-06.html">06. HTML Multimedia</a>
+            <a href="chapter-07.html">07. HTML Graphics</a>
+            <a href="chapter-08.html">08. HTML Advanced</a>
+            <a href="chapter-09.html">09. HTML Events</a>
+            <a href="chapter-10.html">10. HTML APIs</a>
+            <a href="chapter-11.html">11. Getting to Know CSS</a>
+            <a href="chapter-12.html">12. CSS Selectors</a>
+            <a href="chapter-13.html">13. CSS Cascading</a>
+            <a href="chapter-14.html">14. CSS Box Model</a>
+            <a href="chapter-15.html">15. CSS Colors</a>
+            <a href="chapter-16.html">16. CSS Text</a>
+            <a href="chapter-17.html">17. CSS Backgrounds</a>
+            <a href="chapter-18.html">18. CSS Display</a>
+            <a href="chapter-19.html">19. CSS Layout</a>
+            <a href="chapter-20.html">20. CSS Transitions & Animation</a>
+            <a href="chapter-21.html">21. Advanced CSS</a>
+            <a href="chapter-22.html">22. Responsive CSS</a>
+          </div>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" class="btn-nav">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span
+          >📢 <span class="highlight">New Course Added:</span> Advanced CSS
+          Animations &amp; Motion Design</span
+        >
+        <span
+          >🎓 <span class="highlight">22 Chapters</span> of HTML &amp; CSS now
+          available</span
+        >
+        <span
+          >⚡ <span class="warning">Limited Seats:</span> Web Development
+          Bootcamp — Enroll Now</span
+        >
+        <span
+          >🏆 <span class="highlight">Top Rated:</span> Modern Learning Hub —
+          Rated #1 by Students</span
+        >
+        <span
+          >📢 <span class="highlight">New Course Added:</span> Advanced CSS
+          Animations &amp; Motion Design</span
+        >
+        <span
+          >🎓 <span class="highlight">22 Chapters</span> of HTML &amp; CSS now
+          available</span
+        >
+        <span
+          >⚡ <span class="warning">Limited Seats:</span> Web Development
+          Bootcamp — Enroll Now</span
+        >
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="badge">✦ Now enrolling — Spring 2026</div>
+
+        <h1>Learn Web Dev.<br /><em>Build the</em><br />Future.</h1>
+
+        <p>
+          A structured, hands-on curriculum that takes you from HTML basics to
+          advanced CSS mastery — with real projects and expert guidance at every
+          step.
+        </p>
+
+        <div class="btn-group">
+          <button class="btn-primary">Start Learning →</button>
+          <button class="btn-secondary">View Demo</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">22+</div>
+            <div class="stat-label">Chapters</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Tracks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Free Access</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Student ID Card -->
+        <div class="id-card">
+          <div class="id-card-header">
+            <div class="id-card-logo">Modern<em>LearningHub</em></div>
+            <div class="id-badge">Authorized Developer</div>
+          </div>
+          <div class="id-avatar">S</div>
+          <div class="id-name">Soyte Akter Mila</div>
+          <div class="id-role">✦ Authorized Developer</div>
+          <div class="id-grid">
+            <div class="id-field">
+              <label>Student ID</label>
+              <span>1294109</span>
+            </div>
+            <div class="id-field">
+              <label>Batch ID</label>
+              <span style="font-size: 13px">WADA/PNTL-A/69/01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Float Cards -->
+        <div class="float-cards">
+          <div class="float-card">
+            <div class="float-icon blue">📘</div>
+            <div class="float-text">
+              <strong>HTML Mastery</strong>
+              <span>10 chapters covered</span>
+            </div>
+          </div>
+          <div class="float-card">
+            <div class="float-icon green">🎨</div>
+            <div class="float-text">
+              <strong>CSS Expert</strong>
+              <span>12 chapters covered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <div class="section">
+      <span class="section-label">What you'll learn</span>
+      <h2>Explore Our Curriculum</h2>
+      <p class="section-sub">
+        Structured courses designed by experts to help you master modern web
+        development from the ground up.
+      </p>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-icon" style="background: #e8f0fe">📄</div>
+          <div class="course-tag" style="background: #e8f0fe; color: #1a56db">
+            HTML Track
+          </div>
+          <h3>Getting to Know HTML</h3>
+          <p>
+            Start your journey with the building blocks of every website —
+            elements, structure, and semantics.
+          </p>
+          <div class="course-meta">
+            <div class="course-chapters">Chapters <strong>01 – 10</strong></div>
+            <div class="course-arrow">→</div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon" style="background: rgba(13, 159, 110, 0.1)">
+            🎨
+          </div>
+          <div
+            class="course-tag"
+            style="background: rgba(13, 159, 110, 0.1); color: #0d9f6e"
+          >
+            CSS Track
+          </div>
+          <h3>Mastering CSS Design</h3>
+          <p>
+            Style, layout, animation, and responsive design — everything to make
+            sites look stunning.
+          </p>
+          <div class="course-meta">
+            <div class="course-chapters">Chapters <strong>11 – 22</strong></div>
+            <div class="course-arrow">→</div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon" style="background: #fff7ed">⚡</div>
+          <div class="course-tag" style="background: #fff7ed; color: #d97706">
+            Advanced
+          </div>
+          <h3>HTML APIs & Events</h3>
+          <p>
+            Dive deep into HTML APIs, event handling, multimedia, and advanced
+            web capabilities.
+          </p>
+          <div class="course-meta">
+            <div class="course-chapters">Chapters <strong>09 – 10</strong></div>
+            <div class="course-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <div class="cta-text">
+        <h2>Ready to start your<br />web dev journey?</h2>
+        <p>
+          Join thousands of students already learning with Modern Learning Hub.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn-cta">Enroll for Free →</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-logo">Modern<em>LearningHub</em></div>
+      <p>© 2026 Modern Learning Hub. Designed by Soyte. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

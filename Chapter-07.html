@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 07: Data Visualization</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .graphic-container {
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        margin-bottom: 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+      .graphic-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 10px;
+      }
+      .graphic-header h3 {
+        margin: 0;
+        color: #004d99;
+      }
+
+      .toggle-btn {
+        background-color: #f0f4f8;
+        border: 1px solid #004d99;
+        color: #004d99;
+        padding: 5px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+      }
+      .toggle-btn:hover {
+        background-color: #004d99;
+        color: white;
+      }
+      svg,
+      canvas {
+        display: block;
+        margin: 10px auto;
+        max-width: 100%;
+        height: auto;
+        background-color: #fcfcfc;
+        border: 1px dashed #ccc;
+      }
+    </style>
+    <script>
+      function toggleGraphic(id) {
+        var el = document.getElementById(id);
+        if (element.style.display === "none") {
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b>CHAPTER 07</b></h1>
+      <h2><b>HTML Graphics: Educational Data Visualization</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li>
+            <a href="#SVGGraphics">7.1 SVG Graphics</a>
+            <ol>
+              <li><a href="#svgShapes">Shapes (Rect, Circle, Ellipse)</a></li>
+              <li><a href="#svgLines">Lines & Polyline (Trends)</a></li>
+              <li><a href="#svgPolygon">Polygon (Area Charts)</a></li>
+              <li><a href="#svgPath">SVG Path (Complex Icons)</a></li>
+              <li><a href="#svgTextLink">Text & Links</a></li>
+              <li><a href="#svgStroke">SVG Stroke Styles</a></li>
+              <li><a href="#svgGradients">Gradients (Linear/Radial)</a></li>
+              <li><a href="#svgFilters">Filters (Shadows)</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#canvas">7.2 Canvas API</a>
+            <ol>
+              <li><a href="#canvasDraw">Drawing Shapes & Text</a></li>
+              <li><a href="#canvasGradients">Canvas Gradients</a></li>
+              <li><a href="#canvasImages">Drawing Images</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <div id="SVGGraphics">
+          <h1>7.1 Scalable Vector Graphics (SVG)</h1>
+          <hr />
+          <p>
+            SVG is used for resolution-independent educational charts and icons.
+          </p>
+
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.1 - 7.1.3 Basic Shapes</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-shapes')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-shapes">
+              <p>
+                Using Rectangle (Bar), Circle (Status), and Ellipse (Container).
+              </p>
+              <svg width="400" height="200">
+                <rect x="20" y="50" width="50" height="100" fill="#004d99" />
+                <text x="25" y="170" font-size="12">Asset A</text>
+
+                <circle cx="150" cy="100" r="40" fill="#00a04d" />
+                <text x="130" y="105" fill="white" font-size="12">Active</text>
+
+                <ellipse
+                  cx="300"
+                  cy="100"
+                  rx="80"
+                  ry="40"
+                  fill="#e6f2ff"
+                  stroke="#004d99"
+                  stroke-width="2"
+                />
+                <text x="260" y="105" fill="#004d99">Liquid Funds</text>
+              </svg>
+            </div>
+          </div>
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.4 - 7.1.5 Lines & Polyline (Performance Trends)</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-lines')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-lines">
+              <svg width="400" height="200">
+                <!-- Axes -->
+                <line
+                  x1="50"
+                  y1="150"
+                  x2="350"
+                  y2="150"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+                <line
+                  x1="50"
+                  y1="50"
+                  x2="50"
+                  y2="150"
+                  stroke="#ccc"
+                  stroke-width="1"
+                />
+
+                <!-- Trend Line -->
+                <polyline
+                  points="50,140 100,100 150,120 200,80 250,90 300,40 350,60"
+                  fill="none"
+                  stroke="#00a04d"
+                  stroke-width="3"
+                />
+
+                <text x="120" y="180" fill="#333">Q1 - Q4 Performance</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.6 Polygon -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.6 Polygon (Radar Chart)</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-polygon')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-polygon">
+              <svg width="220" height="220">
+                <polygon
+                  points="100,10 40,198 190,78 10,78 160,198"
+                  fill="#ffcc00"
+                  stroke="#004d99"
+                  stroke-width="2"
+                  fill-opacity="0.5"
+                />
+                <text x="60" y="210" font-size="12">Volatility Index</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.7 Path -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.7 SVG Path (Custom Icon)</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-path')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-path">
+              <svg width="100" height="100" viewBox="0 0 24 24">
+                <path
+                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
+                  fill="#004d99"
+                />
+                <text x="0" y="95" font-size="8">Shield Icon</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.8 - 7.1.9 Text & Links -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.8 - 7.1.9 Text & Interactive Links</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-text')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-text">
+              <svg width="300" height="60">
+                <a href="https://www.khanacademy.org/math" target="_blank">
+                  <text
+                    x="10"
+                    y="40"
+                    fill="#004d99"
+                    font-family="Arial"
+                    font-size="20"
+                    text-decoration="underline"
+                  >
+                    Click to View Resource
+                  </text>
+                </a>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.10 Stroke Styles -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.10 SVG Stroke Styles (Chart Borders)</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-stroke')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-stroke">
+              <svg width="400" height="150">
+                <line
+                  x1="10"
+                  y1="20"
+                  x2="390"
+                  y2="20"
+                  stroke="red"
+                  stroke-width="5"
+                />
+                <line
+                  x1="10"
+                  y1="60"
+                  x2="390"
+                  y2="60"
+                  stroke="#004d99"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="10"
+                  y1="100"
+                  x2="390"
+                  y2="100"
+                  stroke="#00a04d"
+                  stroke-width="4"
+                  stroke-dasharray="10,5"
+                />
+                <text x="10" y="130" fill="#555" font-size="12">
+                  Red: Alert | Blue: Rounded | Green: Projected (Dashed)
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.11 Gradients -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.11 SVG Gradients (Heatmaps)</h3>
+              <button
+                class="toggle-btn"
+                onclick="toggleGraphic('svg-gradients')"
+              >
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-gradients">
+              <svg width="400" height="150">
+                <defs>
+                  <!-- Linear Gradient -->
+                  <linearGradient
+                    id="growthGrad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #e6f2ff; stop-opacity: 1"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #004d99; stop-opacity: 1"
+                    />
+                  </linearGradient>
+                  <!-- Radial Gradient -->
+                  <radialGradient id="alertGrad" cx="50%" cy="50%" r="50%">
+                    <stop
+                      offset="0%"
+                      style="stop-color: #fff; stop-opacity: 0"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: red; stop-opacity: 1"
+                    />
+                  </radialGradient>
+                </defs>
+                <rect
+                  x="10"
+                  y="10"
+                  width="180"
+                  height="100"
+                  fill="url(#growthGrad)"
+                />
+                <circle cx="300" cy="60" r="40" fill="url(#alertGrad)" />
+                <text x="30" y="130">Linear Growth</text>
+                <text x="270" y="130">Radial Alert</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7.1.12 Filters -->
+          <div class="graphic-container">
+            <div class="graphic-header">
+              <h3>7.1.12 SVG Filters (Drop Shadow)</h3>
+              <button class="toggle-btn" onclick="toggleGraphic('svg-filters')">
+                Show/Hide
+              </button>
+            </div>
+            <div id="svg-filters">
+              <svg width="200" height="120">
+                <defs>
+                  <filter id="f1" x="0" y="0" width="200%" height="200%">
+                    <feOffset result="offOut" in="SourceAlpha" dx="5" dy="5" />
+                    <feGaussianBlur
+                      result="blurOut"
+                      in="offOut"
+                      stdDeviation="3"
+                    />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                  </filter>
+                </defs>
+                <rect
+                  x="50"
+                  y="20"
+                  width="100"
+                  height="60"
+                  fill="#004d99"
+                  filter="url(#f1)"
+                />
+                <text x="65" y="55" fill="white">Card</text>
+              </svg>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- 7.2 Canvas -->
+          <div id="canvas">
+            <h1>7.2 HTML5 Canvas (Dynamic Rendering)</h1>
+            <p>
+              Canvas is used for rendering dynamic, pixel-based charts typically
+              generated by JavaScript.
+            </p>
+
+            <!-- Text & Lines -->
+            <div class="graphic-container">
+              <div class="graphic-header">
+                <h3>7.2.1 - 7.2.2 Draw Text & Lines</h3>
+                <button
+                  class="toggle-btn"
+                  onclick="toggleGraphic('canvas-basic')"
+                >
+                  Show/Hide
+                </button>
+              </div>
+              <div id="canvas-basic">
+                <canvas id="myCanvas1" width="400" height="100"></canvas>
+                <script>
+                  var c = document.getElementById("myCanvas1");
+                  var ctx = c.getContext("2d");
+                  ctx.moveTo(0, 0);
+                  ctx.lineTo(400, 100);
+                  ctx.strokeStyle = "#004d99";
+                  ctx.stroke();
+                  ctx.font = "30px Arial";
+                  ctx.fillStyle = "#00a04d";
+                  ctx.fillText("EduHub", 10, 50);
+                </script>
+              </div>
+            </div>
+
+            <!-- Shapes -->
+            <div class="graphic-container">
+              <div class="graphic-header">
+                <h3>7.2.3 - 7.2.4 Draw Shapes</h3>
+                <button
+                  class="toggle-btn"
+                  onclick="toggleGraphic('canvas-shapes')"
+                >
+                  Show/Hide
+                </button>
+              </div>
+              <div id="canvas-shapes">
+                <canvas id="myCanvas2" width="400" height="150"></canvas>
+                <script>
+                  var c2 = document.getElementById("myCanvas2");
+                  var ctx2 = c2.getContext("2d");
+                  ctx2.fillStyle = "#e6f2ff";
+                  ctx2.fillRect(20, 20, 150, 100);
+                  ctx2.beginPath();
+                  ctx2.arc(280, 70, 40, 0, 2 * Math.PI);
+                  ctx2.fillStyle = "#004d99";
+                  ctx2.fill();
+                  ctx2.stroke();
+                </script>
+              </div>
+            </div>
+
+            <!-- Gradients -->
+            <div class="graphic-container">
+              <div class="graphic-header">
+                <h3>7.2.5 Draw Gradients</h3>
+                <button
+                  class="toggle-btn"
+                  onclick="toggleGraphic('canvas-grad')"
+                >
+                  Show/Hide
+                </button>
+              </div>
+              <div id="canvas-grad">
+                <canvas id="myCanvas3" width="400" height="150"></canvas>
+                <script>
+                  var c3 = document.getElementById("myCanvas3");
+                  var ctx3 = c3.getContext("2d");
+                  var grd = ctx3.createLinearGradient(0, 0, 200, 0);
+                  grd.addColorStop(0, "#004d99");
+                  grd.addColorStop(1, "white");
+                  ctx3.fillStyle = grd;
+                  ctx3.fillRect(10, 10, 180, 80);
+                  var grd2 = ctx3.createRadialGradient(300, 50, 5, 300, 50, 50);
+                  grd2.addColorStop(0, "red");
+                  grd2.addColorStop(1, "white");
+                  ctx3.fillStyle = grd2;
+                  ctx3.fillRect(250, 10, 100, 100);
+                </script>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <div class="graphic-container">
+              <div class="graphic-header">
+                <h3>7.2.6 Draw Image (Logo Watermark)</h3>
+                <button
+                  class="toggle-btn"
+                  onclick="toggleGraphic('canvas-img')"
+                >
+                  Show/Hide
+                </button>
+              </div>
+              <div id="canvas-img">
+                <canvas
+                  id="myCanvas4"
+                  width="400"
+                  height="200"
+                  style="border: 1px solid #ccc; background-color: #fff"
+                ></canvas>
+                <script>
+                  var c4 = document.getElementById("myCanvas4");
+                  var ctx4 = c4.getContext("2d");
+                  var img = new Image();
+                  img.onload = function () {
+                    ctx4.drawImage(img, 10, 10, 150, 150);
+                    ctx4.font = "20px Arial";
+                    ctx4.fillStyle = "#004d99";
+                    ctx4.fillText("EduHub Logo", 50, 90);
+                  };
+                  img.src = "icon/book-stack.webp";
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html" class="current-chapter">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

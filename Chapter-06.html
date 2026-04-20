@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub- Chapter 06: HTML Multimedia</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .media-container {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .media-header {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #004d99;
+        padding-bottom: 10px;
+      }
+
+      .media-header h2 {
+        color: #004d99;
+        margin: 0;
+        font-size: 1.4em;
+      }
+
+      .media-description {
+        font-size: 0.95em;
+        color: #555;
+        margin-bottom: 15px;
+      }
+      audio {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 10px;
+        border-radius: 30px;
+        background-color: #f1f3f4;
+      }
+
+      video {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #000;
+      }
+      .transcript-box {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-left: 4px solid #00a04d;
+        font-size: 0.9em;
+      }
+      .transcript-box h3 {
+        margin-top: 0;
+        font-size: 1em;
+        color: #333;
+      }
+
+      @media (max-width: 768px) {
+        .media-header h2 {
+          font-size: 1.2em;
+        }
+        video {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 480px) {
+        .media-description {
+          font-size: 0.85em;
+        }
+        audio,
+        video {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 06</b></h1>
+      <h2><b>HTML Multimedia: Learning Resources & Training</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#audio">Audio (Lectures & Updates)</a></li>
+          <li><a href="#video">Video (Presentations & Guides)</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <div id="audio">
+          <div class="media-container">
+            <div class="media-header">
+              <h1>6.1 Audio</h1>
+              <h2>Mathematics Lecture Highlights</h2>
+            </div>
+            <p class="media-description">
+              Listen to the teacher’s summary of the chapter, key formulas, and
+              problem-solving strategies for the upcoming exam.
+            </p>
+            <audio controls loop>
+              <source src="Media/056_Al-Waqia.mp3" type="audio/mpeg" />
+              <source src="placeholder_audio_file.ogg" type="audio/ogg" />
+              Your browser does not support the audio element.
+            </audio>
+
+            <div class="transcript-box">
+              <h3>Key Takeaways:</h3>
+              <ul>
+                <li>Understand Pythagoras theorem applications.</li>
+                <li>Practice algebraic simplifications daily.</li>
+                <li>Focus on geometry diagrams with proper labeling.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div id="video">
+          <div class="media-container">
+            <div class="media-header">
+              <h1>6.2 Video</h1>
+              <h2>Science Experiment Demonstration</h2>
+            </div>
+            <p class="media-description">
+              A video presentation showing a simple chemistry experiment,
+              explaining chemical reactions and safety measures in the lab.
+            </p>
+            <video
+              controls
+              width="800"
+              height="450"
+              poster="Media/Thumbnail.png"
+            >
+              <source src="Media/Fish Museum.mp4" type="video/mp4" />
+            </video>
+
+            <div class="transcript-box">
+              <h3>Video Summary:</h3>
+              <p>
+                The teacher demonstrates a safe experiment, emphasizing lab
+                safety, observation skills, and recording accurate results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html" class="current-chapter">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

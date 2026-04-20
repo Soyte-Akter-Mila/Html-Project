@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 21: Advanced CSS Utilities</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      /* 21.1 CSS Variables (Theming) */
+      :root {
+        --primary-theme: #004d99;
+        --secondary-theme: #00a04d;
+        --alert-color: #cc0000;
+        --text-muted: #666666;
+        --card-padding: 20px;
+        --border-radius-md: 8px;
+      }
+
+      .theme-card {
+        background-color: white;
+        border: 1px solid var(--primary-theme);
+        border-radius: var(--border-radius-md);
+        padding: var(--card-padding);
+        color: var(--primary-theme);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .theme-btn {
+        background-color: var(--secondary-theme);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* 21.2 CSS Calculation (Dynamic Sizing) */
+      .calc-container {
+        height: 200px;
+        border: 1px dashed #999;
+        background-color: #f9f9f9;
+        position: relative;
+      }
+
+      .calc-sidebar {
+        width: 200px;
+        height: 100%;
+        background-color: #e6f2ff;
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .calc-content {
+        width: calc(100% - 200px);
+        height: 100%;
+        background-color: white;
+        float: left;
+        padding: 20px;
+        box-sizing: border-box;
+        border-left: 1px solid #ccc;
+      }
+
+      /* 21.3 CSS Counters (Automated Numbering) */
+      .study-doc {
+        counter-reset: section;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .study-doc h3 {
+        counter-reset: clause;
+        color: #004d99;
+        margin-top: 20px;
+      }
+
+      .study-doc h3::before {
+        counter-increment: section;
+        content: "Section " counter(section) ": ";
+      }
+
+      .study-doc p.clause::before {
+        counter-increment: clause;
+        content: counter(section) "." counter(clause) " ";
+        font-weight: bold;
+        color: #555;
+      }
+
+      @media (max-width: 768px) {
+        .calc-sidebar {
+          width: 100%;
+          float: none;
+          height: auto;
+        }
+        .calc-content {
+          width: 100%;
+          float: none;
+          border-left: none;
+          border-top: 1px solid #ccc;
+        }
+        .theme-card {
+          padding: 15px;
+        }
+        .theme-btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 21</b></h1>
+      <h2><b>Advanced CSS: System Scalability & Learning Compliance</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#cssVariables">CSS Variables (Theming System)</a></li>
+          <li>
+            <a href="#cssCalculation">CSS Calculation (Responsive Layouts)</a>
+          </li>
+          <li><a href="#cssCounters">CSS Counters (Automated Numbering)</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <div id="cssVariables">
+          <h1>21.1 CSS Variables (Global Theming)</h1>
+          <hr />
+          <p>
+            CSS Variables (Custom Properties) allow us to define theme colors
+            and spacing in one place (`:root`) and reuse them everywhere. This
+            is critical for maintaining consistency across a large learning hub.
+          </p>
+
+          <div class="theme-card">
+            <h3>Standard Lesson Card</h3>
+            <p>
+              This card uses `var(--primary-theme)` for its border and text
+              color, and `var(--card-padding)` for spacing.
+            </p>
+            <button class="theme-btn">
+              Action Button (Secondary Theme Color)
+            </button>
+          </div>
+          <p>
+            <small>
+              If we change `--primary-theme` in the CSS file, every single card
+              in the hub updates instantly.
+            </small>
+          </p>
+        </div>
+        <hr />
+
+        <!-- 21.2 CSS Calculation -->
+        <div id="cssCalculation">
+          <h1>21.2 CSS Calculation (`calc()`)</h1>
+          <hr />
+          <p>
+            The `calc()` function performs calculations to determine CSS
+            property values. It is essential for mixing units (e.g., pixels and
+            percentages) to create fluid, responsive layouts in study
+            dashboards.
+          </p>
+
+          <div class="calc-container">
+            <div class="calc-sidebar">
+              <strong>Sidebar</strong><br />
+              Width: 200px (Fixed)
+            </div>
+            <div class="calc-content">
+              <strong>Main Content Area</strong><br />
+              Width: <code>calc(100% - 200px)</code> <br /><br />
+              This area automatically fills the remaining space, ensuring the
+              layout never breaks regardless of screen size.
+            </div>
+            <div style="clear: both"></div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 21.3 CSS Counters -->
+        <div id="cssCounters">
+          <h1>21.3 CSS Counters (Study Document Numbering)</h1>
+          <hr />
+          <p>
+            CSS Counters allow us to adjust the appearance of content based on
+            its location in the document. This is perfect for automatically
+            numbering sections and clauses in long study notes or compliance
+            documents.
+          </p>
+
+          <div class="study-doc">
+            <h3>Learning Guidelines</h3>
+            <p class="clause">Student Responsibilities.</p>
+            <p class="clause">Module Completion Rules.</p>
+            <p class="clause">Assessment Policies.</p>
+
+            <h3>Privacy Policy</h3>
+            <p class="clause">Data Collection.</p>
+            <p class="clause">Third-Party Sharing.</p>
+
+            <h3>Dispute Resolution</h3>
+            <p class="clause">Appeal Process.</p>
+          </div>
+          <p>
+            <small>
+              Note: The "Section 1", "1.1", "1.2" etc., are automatically
+              generated by CSS, not typed in HTML.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html" class="current-chapter">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

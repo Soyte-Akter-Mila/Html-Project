@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern learning Hub- Chapter 01: Getting to Know HTML</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      .code-block {
+        background-color: #f4f4f4;
+        border-left: 4px solid #004d99;
+        padding: 10px;
+        font-family: monospace;
+        margin: 10px 0;
+        overflow-x: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .element-demo {
+        border: 1px dashed #999;
+        padding: 10px;
+        margin: 10px 0;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .attribute-highlight {
+        color: #cc0000;
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+        body {
+          font-size: 16px;
+          padding: 10px;
+        }
+        .code-block,
+        .element-demo {
+          font-size: 14px;
+          padding: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 14px;
+        }
+        .code-block,
+        .element-demo {
+          font-size: 13px;
+          padding: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chapterName">
+      <h1><b> CHAPTER 01</b></h1>
+      <h2><b>Getting to Know HTML: The Foundation of Education Portals</b></h2>
+    </div>
+
+    <div class="contentAndTopic">
+      <nav class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#htmlElements">1.1 Two Types of HTML Elements</a></li>
+          <li><a href="#docStructure">1.2 HTML Document Structure</a></li>
+          <li><a href="#firstWebpage">1.3 Your First Webpage</a></li>
+          <li><a href="#charEncoding">1.4 Character Encoding</a></li>
+          <li><a href="#attributes">1.5 Element Attributes</a></li>
+          <li><a href="#favicon">1.6 Favorite Icon</a></li>
+          <li><a href="#comments">1.7 Comments</a></li>
+        </ol>
+      </nav>
+
+      <div class="topic">
+        <!-- 1.1 Two Types of HTML Elements -->
+        <div id="htmlElements">
+          <h1>1.1 Two Types of HTML Elements</h1>
+          <hr />
+          <p>
+            In education portals, we use two main types of elements to structure
+            content:
+          </p>
+
+          <h3>1. Container Elements (Normal Elements)</h3>
+          <p>
+            These have a start tag and an end tag. They contain content like
+            course titles or student information.
+          </p>
+          <div class="element-demo">
+            <code>&lt;h1&gt;Welcome to Modern Learning Hub &lt;/h1&gt;</code
+            ><br />
+            <code>&lt;p&gt;Your learning journey starts here.&lt;/p&gt;</code>
+          </div>
+
+          <h3>2. Void Elements (Empty Elements)</h3>
+          <p>
+            These have only a start tag and no content. Used for visual breaks
+            or metadata.
+          </p>
+          <div class="element-demo">
+            <code>&lt;hr&gt;</code> (Thematic Break)<br />
+            <code>&lt;br&gt;</code> (Line Break)<br />
+            <code>&lt;img src="logo.png"&gt;</code> (Images)
+          </div>
+        </div>
+        <hr />
+
+        <!-- 1.2 HTML Document Structure -->
+        <div id="docStructure">
+          <h1>1.2 HTML Document Structure</h1>
+          <hr />
+          <p>
+            Every education webpage follows a strict tree structure (DOM). This
+            ensures accessibility tools and screen readers can parse the data
+            correctly.
+          </p>
+
+          <div class="code-block">
+            &lt;!DOCTYPE html&gt;<br />
+            &lt;html&gt;<br />
+            &lt;head&gt; &lt;!-- Metadata: Title, Charset, Stylesheets --&gt;<br />
+            &lt;/head&gt;<br />
+            &lt;body&gt; &lt;!-- Visible Content: Courses, Lessons, Forms
+            --&gt;<br />
+            &lt;/body&gt;<br />
+            &lt;/html&gt;
+          </div>
+        </div>
+        <hr />
+
+        <!-- 1.3 Your First Webpage -->
+        <div id="firstWebpage">
+          <h1>1.3 Your First Webpage (Student Login)</h1>
+          <hr />
+          <p>Let's build the skeleton of a student login page.</p>
+          <div class="element-demo">
+            <h1>Modern Learning Hub Login</h1>
+            <p>Please enter your credentials to access your courses.</p>
+            <hr />
+            <p>Note: We will never ask for your password via email.</p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 1.4 Character Encoding -->
+        <div id="charEncoding">
+          <h1>1.4 Character Encoding (Global Education)</h1>
+          <hr />
+          <p>
+            Education is global. We must use <strong>UTF-8</strong> to ensure
+            symbols (¥, €, £) and languages (Bengali, Japanese, Arabic) display
+            correctly without data corruption.
+          </p>
+          <div class="code-block">&lt;meta charset="UTF-8" /&gt;</div>
+          <h3>Examples of Multilingual Support:</h3>
+          <ul>
+            <li><strong>English:</strong> Welcome to My Webpage!</li>
+            <li>
+              <strong>Bengali:</strong> আমার ওয়েবপেজে স্বাগতম! (Welcome to my
+              webpage!)
+            </li>
+            <li>
+              <strong>Japanese:</strong> 私のウェブページへようこそ！ (Welcome
+              to my webpage!)
+            </li>
+            <li>
+              <strong>Arabic:</strong> مرحبًا بكم في صفحتي الإلكترونية! (Welcome
+              to my electronic page!)
+            </li>
+          </ul>
+        </div>
+        <hr />
+
+        <!-- 1.5 Element Attributes -->
+        <div id="attributes">
+          <h1>1.5 Element Attributes (Configuration)</h1>
+          <hr />
+          <p>
+            Attributes provide extra information about elements. In education,
+            they are crucial for linking stylesheets, setting input types, and
+            accessibility.
+          </p>
+          <div class="code-block">
+            &lt;input <span class="attribute-highlight">type="password"</span>
+            <span class="attribute-highlight"
+              >placeholder="Enter Password"</span
+            >
+            /&gt;
+          </div>
+        </div>
+        <hr />
+
+        <!-- 1.6 Favorite Icon -->
+        <div id="favicon">
+          <h1>1.6 Favorite Icon (Favicon)</h1>
+          <hr />
+          <p>
+            The Favicon is the small logo that appears in the browser tab. It is
+            essential for brand recognition in education portals.
+          </p>
+          <div class="code-block">
+            &lt;link rel="icon" href="icon/learning Hub.webp" /&gt;
+          </div>
+          <p>
+            <img
+              src="icon/learning Hub.webp"
+              width="32"
+              height="32"
+              style="vertical-align: middle"
+            />
+            (This icon appears in your tab)
+          </p>
+        </div>
+        <hr />
+
+        <!-- 1.7 Comments -->
+        <div id="comments">
+          <h1>1.7 Comments (Internal Documentation)</h1>
+          <hr />
+          <p>
+            Comments are not displayed in the browser. Developers use them to
+            leave notes about code logic, reminders, or TODOs for the education
+            team.
+          </p>
+          <div class="code-block">
+            &lt;!-- NOTE: Ensure student form includes CSRF token --&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html" class="current-chapter">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>

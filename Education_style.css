@@ -1,0 +1,221 @@
+/*  Modern Learning Hub  Theme - Modern Colors and Transitions */
+
+:root {
+  --primary-color: #004488; /* Deep Blue - Knowledge and Trust */
+  --secondary-color: #00aeef; /* Light Blue - Accent */
+  --background-color: #f8f8f8; /* Light Gray */
+  --text-color: #333333; /* Dark Gray */
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Chapter Header */
+.chapterName {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease;
+}
+.chapterName h1,
+.chapterName h2 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Layout */
+.contentAndTopic {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Table of Contents */
+.contents {
+  width: 250px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-right: 20px;
+}
+.contents a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+.contents a:hover {
+  color: var(--secondary-color);
+  padding-left: 5px;
+}
+
+/* Main Topic */
+.topic {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.topic h1 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 5px;
+}
+
+/* Buttons */
+.button button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+.button button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Form Styling */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  width: calc(100% - 22px);
+  margin-top: 5px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 174, 239, 0.5);
+}
+
+/* Bottom Navigation */
+.bottom-navigation-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  background-color: #f0f4f8;
+  border-top: 1px solid #004d99;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 10px;
+  opacity: 0.85;
+  -webkit-overflow-scrolling: touch;
+}
+.bottom-navigation-bar a {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 0 2px;
+  color: #004d99;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+.bottom-navigation-bar a:hover,
+.bottom-navigation-bar a:focus {
+  background-color: #e6f2ff;
+  color: #002e66;
+}
+.bottom-navigation-bar .current-chapter {
+  background-color: #004d99;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #004d99;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+}
+footer a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 992px) {
+  .contentAndTopic {
+    flex-direction: column;
+  }
+  .contents {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chapterName {
+    padding: 15px;
+  }
+  .chapterName h1 {
+    font-size: 22px;
+  }
+  .topic {
+    padding: 15px;
+  }
+  .button button {
+    width: 100%;
+    margin: 8px 0;
+  }
+  footer {
+    font-size: 0.8em;
+    padding: 15px;
+  }
+  .bottom-navigation-bar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+  .bottom-navigation-bar a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Learning Hub - Chapter 18: Display & Layout Control</title>
+    <link rel="stylesheet" href="Education_style.css" />
+    <link rel="icon" href="icon/learning Hub.webp" type="webp" />
+    <style>
+      /* 18.1 Display vs Visibility */
+      .display-none-box {
+        display: none;
+        background-color: red;
+        padding: 10px;
+      }
+      .visibility-hidden-box {
+        visibility: hidden;
+        background-color: blue;
+        padding: 10px;
+        border: 1px dashed #ccc;
+      }
+
+      /* 18.2 Object Fit */
+      .fit-cover {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 2px solid #004d99;
+        border-radius: 50%;
+      }
+
+      /* 18.3 Cursor */
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .cursor-not-allowed {
+        cursor: not-allowed;
+      }
+      .cursor-wait {
+        cursor: wait;
+      }
+
+      /* 18.4 Overflow */
+      .overflow-box {
+        width: 200px;
+        height: 80px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+      }
+      .overflow-visible {
+        overflow: visible;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .overflow-scroll {
+        overflow: scroll;
+      }
+      .overflow-auto {
+        overflow: auto;
+      }
+
+      /* 18.5 Opacity */
+      .opacity-half {
+        opacity: 0.5;
+      }
+      .opacity-zero {
+        opacity: 0;
+      }
+
+      /* 18.6 Shadows */
+      .shadow-text {
+        text-shadow: 2px 2px 4px #000000;
+        color: #004d99;
+        font-weight: bold;
+      }
+      .shadow-box {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        background-color: white;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      /* 18.7 Multiple Columns */
+      .multi-column {
+        column-count: 3;
+        column-gap: 20px;
+        column-rule: 1px solid #ccc;
+        text-align: justify;
+      }
+
+      /* 18.8 CSS Tables */
+      .css-table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .css-row {
+        display: table-row;
+      }
+      .css-cell {
+        display: table-cell;
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      /* 18.9 Lists */
+      .list-custom {
+        list-style-type: square;
+        color: #004d99;
+      }
+      .list-position {
+        list-style-position: inside;
+      }
+
+      /* 18.10 Transforms */
+      .transform-box {
+        width: 100px;
+        height: 100px;
+        background-color: #00a04d;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        margin: 20px;
+        display: inline-block;
+        transition: transform 0.5s;
+      }
+      .move:hover {
+        transform: translate(20px, 10px);
+      }
+      .scale:hover {
+        transform: scale(1.2);
+      }
+      .rotate:hover {
+        transform: rotate(45deg);
+      }
+      .skew:hover {
+        transform: skewX(20deg);
+      }
+
+      @media (max-width: 768px) {
+        .multi-column {
+          column-count: 1;
+        }
+        .overflow-box,
+        .shadow-box {
+          width: 100%;
+        }
+        .transform-box {
+          margin: 10px auto;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contentAndTopic">
+      <div class="contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#displayVisibility">Display vs. Visibility</a></li>
+          <li><a href="#objectFit">CSS Object-Fit</a></li>
+          <li><a href="#cursor">Cursor</a></li>
+          <li><a href="#overflow">CSS Overflow</a></li>
+          <li><a href="#opacity">CSS Opacity</a></li>
+          <li><a href="#shadows">CSS Shadows</a></li>
+          <li><a href="#columns">CSS Multiple Columns</a></li>
+          <li><a href="#cssTables">CSS Tables</a></li>
+          <li><a href="#cssLists">CSS Lists</a></li>
+          <li><a href="#transforms">CSS Transforms</a></li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <!-- 18.1 Display vs Visibility -->
+        <div id="displayVisibility">
+          <h1>18.1 Display vs. Visibility (Hiding Content)</h1>
+          <hr />
+          <p>
+            Controls how elements are hidden. Used for toggling module details
+            or admin features in learning portals.
+          </p>
+
+          <h3>18.1.1 Display: none</h3>
+          <div style="border: 1px solid #000; padding: 10px">
+            <p>Paragraph 1 (Visible)</p>
+            <p class="display-none-box">
+              Paragraph 2 (display: none - Removed from flow)
+            </p>
+            <p>Paragraph 3 (Visible - Shifted up)</p>
+          </div>
+
+          <h3>18.1.2 Visibility: hidden</h3>
+          <div style="border: 1px solid #000; padding: 10px">
+            <p>Paragraph 1 (Visible)</p>
+            <p class="visibility-hidden-box">
+              Paragraph 2 (visibility: hidden - Space preserved)
+            </p>
+            <p>Paragraph 3 (Visible - Stays in place)</p>
+          </div>
+        </div>
+        <hr />
+
+        <div id="objectFit">
+          <h1>18.2 CSS Object-Fit (Profile Images)</h1>
+          <hr />
+          <p>
+            Ensures images (like student profile photos) fit their container
+            without distortion.
+          </p>
+          <img src="/Image/profile.jpg" alt="Profile" class="fit-cover" />
+          <p>
+            <small
+              ><code>object-fit: cover;</code> fills the circle
+              perfectly.</small
+            >
+          </p>
+        </div>
+        <hr />
+
+        <!-- 18.3 Cursor -->
+        <div id="cursor">
+          <h1>18.3 Cursor (Interactive States)</h1>
+          <hr />
+          <button class="cursor-pointer">Submit Assignment (Pointer)</button
+          ><br /><br />
+          <button class="cursor-not-allowed" disabled>
+            Restricted Action (Not Allowed)</button
+          ><br /><br />
+          <button class="cursor-wait">Processing Module... (Wait)</button>
+        </div>
+        <hr />
+
+        <!-- 18.4 Overflow -->
+        <div id="overflow">
+          <h1>18.4 CSS Overflow (Scrolling Content)</h1>
+          <hr />
+          <p>
+            Manages content that is too big for its container, essential for
+            study logs or activity feeds.
+          </p>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <div class="overflow-box overflow-visible">
+              <strong>Visible:</strong> Content spills out. Lesson #1, Lesson
+              #2, Lesson #3...
+            </div>
+            <div class="overflow-box overflow-hidden">
+              <strong>Hidden:</strong> Content clipped. Lesson #1, Lesson #2,
+              Lesson #3...
+            </div>
+            <div class="overflow-box overflow-scroll">
+              <strong>Scroll:</strong> Always scrollbars. Lesson #1, Lesson #2,
+              Lesson #3...
+            </div>
+            <div class="overflow-box overflow-auto">
+              <strong>Auto:</strong> Scrollbars if needed. Lesson #1, Lesson #2,
+              Lesson #3...
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 18.5 Opacity -->
+        <div id="opacity">
+          <h1>18.5 CSS Opacity (Inactive States)</h1>
+          <hr />
+          <div
+            style="
+              background-color: #004d99;
+              color: white;
+              padding: 10px;
+              width: 200px;
+            "
+          >
+            Active Module (Opacity 1)
+          </div>
+          <br />
+          <div
+            style="
+              background-color: #004d99;
+              color: white;
+              padding: 10px;
+              width: 200px;
+            "
+            class="opacity-half"
+          >
+            Archived Module (Opacity 0.5)
+          </div>
+        </div>
+        <hr />
+
+        <!-- 18.6 Shadows -->
+        <div id="shadows">
+          <h1>18.6 CSS Shadows (Depth)</h1>
+          <hr />
+          <h3 class="shadow-text">Modern Learning Hub (Text Shadow)</h3>
+          <br />
+          <div class="shadow-box">
+            <strong>Study Card</strong><br />
+            Module Reference<br />
+            (Box Shadow for Elevation)
+          </div>
+        </div>
+        <hr />
+
+        <!-- 18.7 Multiple Columns -->
+        <div id="columns">
+          <h1>18.7 CSS Multiple Columns (Study Notes)</h1>
+          <hr />
+          <p>
+            Splits long text into newspaper-like columns. Perfect for "Terms &
+            Conditions" or study notes.
+          </p>
+          <div class="multi-column">
+            <p>
+              <strong>1. Introduction:</strong> These terms govern your use of
+              learning modules. <strong>2. Privacy:</strong> We encrypt all
+              data. <strong>3. Liability:</strong> The hub is not liable for
+              user negligence. <strong>4. Termination:</strong> We reserve the
+              right to close accounts.
+              <strong>5. Jurisdiction:</strong> Governed by institutional
+              policy. <strong>6. Amendments:</strong>
+              Terms may change with notice.
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 18.8 CSS Tables -->
+        <div id="cssTables">
+          <h1>18.8 CSS Tables (Responsive Grids)</h1>
+          <hr />
+          <p>Using CSS to display divs as a table structure.</p>
+          <div class="css-table">
+            <div
+              class="css-row"
+              style="background-color: #f0f4f8; font-weight: bold"
+            >
+              <div class="css-cell">Date</div>
+              <div class="css-cell">Activity</div>
+              <div class="css-cell">Status</div>
+            </div>
+            <div class="css-row">
+              <div class="css-cell">2026-02-20</div>
+              <div class="css-cell">Assignment Upload</div>
+              <div class="css-cell">Completed</div>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- 18.9 CSS Lists -->
+        <div id="cssLists">
+          <h1>18.9 CSS Lists (Learning Checklist)</h1>
+          <hr />
+          <ul class="list-custom list-position">
+            <li>Review Module Objectives</li>
+            <li>Complete Practice Exercises</li>
+            <li>Submit Final Assessment</li>
+          </ul>
+        </div>
+        <hr />
+
+        <!-- 18.10 Transforms -->
+        <div id="transforms">
+          <h1>18.10 CSS Transforms (Interactive Feedback)</h1>
+          <hr />
+          <p>Hover over the boxes to see the transformation.</p>
+
+          <div class="transform-box move">Move</div>
+          <div class="transform-box scale">Scale</div>
+          <div class="transform-box rotate">Rotate</div>
+          <div class="transform-box skew">Skew</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-navigation-bar">
+      <a href="Homepage.html">Home</a>
+      <a href="chapter-01.html">01</a>
+      <a href="chapter-02.html">02</a>
+      <a href="chapter-03.html">03</a>
+      <a href="chapter-04.html">04</a>
+      <a href="chapter-05.html">05</a>
+      <a href="chapter-06.html">06</a>
+      <a href="chapter-07.html">07</a>
+      <a href="chapter-08.html">08</a>
+      <a href="chapter-11.html">11</a>
+      <a href="chapter-12.html">12</a>
+      <a href="chapter-13.html">13</a>
+      <a href="chapter-14.html">14</a>
+      <a href="chapter-15.html">15</a>
+      <a href="chapter-16.html">16</a>
+      <a href="chapter-17.html">17</a>
+      <a href="chapter-18.html" class="current-chapter">18</a>
+      <a href="chapter-19.html">19</a>
+      <a href="chapter-20.html">20</a>
+      <a href="chapter-21.html">21</a>
+      <a href="chapter-22.html">22</a>
+    </div>
+    <footer>
+      <p>Copyright &copy; Modern Learning Hub Division</p>
+      <address>
+        <p>1207 Knowledge Tower, Education District</p>
+        <p>
+          <a href="tel:01311990587">Support Line</a> |
+          <a href="mailto:modernlearning@gmail.com">Education Operations</a>
+        </p>
+      </address>
+    </footer>
+  </body>
+</html>
